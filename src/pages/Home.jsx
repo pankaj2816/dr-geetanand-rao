@@ -1,6 +1,54 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 import { usePageTitle } from '../usePageTitle'
-import { site, focus, education, publications, memberships } from '../data'
+import { site, focus, education, publications, memberships, highlights } from '../data'
+
+function CountUp({ value, suffix = '' }) {
+  const ref = useRef(null)
+  const [shown, setShown] = useState(0)
+
+  useEffect(() => {
+    const node = ref.current
+    if (!node) return undefined
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduce) {
+      setShown(value)
+      return undefined
+    }
+
+    let frame = 0
+    let started = false
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || started) return
+        started = true
+        const start = performance.now()
+        const duration = 1200
+        const tick = (now) => {
+          const progress = Math.min(1, (now - start) / duration)
+          const eased = 1 - (1 - progress) ** 3
+          setShown(Math.round(eased * value))
+          if (progress < 1) frame = requestAnimationFrame(tick)
+        }
+        frame = requestAnimationFrame(tick)
+      },
+      { threshold: 0.5 },
+    )
+    observer.observe(node)
+    return () => {
+      observer.disconnect()
+      cancelAnimationFrame(frame)
+    }
+  }, [value])
+
+  return (
+    <strong ref={ref}>
+      {shown}
+      {suffix}
+    </strong>
+  )
+}
 
 export default function Home() {
   usePageTitle('')
@@ -25,6 +73,14 @@ export default function Home() {
               </Link>
             </div>
           </div>
+          <ol className="hero-aside">
+            {education.map((item) => (
+              <li key={item.city}>
+                <span>{item.years}</span>
+                <strong>{item.city}</strong>
+              </li>
+            ))}
+          </ol>
           <figure className="hero-portrait">
             <img
               src={`${import.meta.env.BASE_URL}media/portrait-front.jpg`}
@@ -40,6 +96,14 @@ export default function Home() {
       </section>
 
       <section className="cred-strip" aria-label="Qualifications">
+        <div className="wrap stat-grid">
+          {highlights.map((item, index) => (
+            <article key={item.label} style={{ animationDelay: `${0.08 + index * 0.1}s` }}>
+              <CountUp value={item.value} suffix={item.suffix} />
+              <span>{item.label}</span>
+            </article>
+          ))}
+        </div>
         <div className="wrap cred-grid">
           {education.map((item) => (
             <article key={item.degree}>

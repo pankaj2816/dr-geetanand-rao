@@ -271,3 +271,10 @@ export const certificates = [
     imageAlt: 'Original certificate of appreciation from the 32nd UPAROICON 2020',
   },
 ]
+
+export const highlights = [
+  { value: 7, suffix: '+', label: 'Years of experience' },
+  { value: publications.length, suffix: '', label: 'Published papers' },
+  { value: procedures.length, suffix: '', label: 'Procedures' },
+  { value: memberships.length, suffix: '', label: 'Societies' },
+]

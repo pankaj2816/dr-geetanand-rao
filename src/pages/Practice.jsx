@@ -18,8 +18,8 @@ export default function Practice() {
           </div>
           <img
             className="media-band"
-            src={`${import.meta.env.BASE_URL}media/still-linen.jpg`}
-            alt="Linen and a cup in morning light"
+            src={`${import.meta.env.BASE_URL}media/still-practice.jpg`}
+            alt="A stethoscope on a closed folder"
           />
           <div className="card-grid">
             {therapies.map((item) => (
