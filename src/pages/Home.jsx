@@ -34,7 +34,7 @@ export default function Home() {
           </div>
           <figure className="hero-portrait">
             <img
-              src="/media/portrait-front.jpg"
+              src={`${import.meta.env.BASE_URL}media/portrait-front.jpg`}
               alt="Portrait of Dr. Geetanand Rao, medical oncologist"
             />
             <figcaption>
@@ -80,7 +80,7 @@ export default function Home() {
         <div className="wrap quote-grid">
           <figure>
             <img
-              src="/media/portrait-brown.jpg"
+              src={`${import.meta.env.BASE_URL}media/portrait-brown.jpg`}
               alt="Dr. Geetanand Rao in a studio portrait"
             />
           </figure>

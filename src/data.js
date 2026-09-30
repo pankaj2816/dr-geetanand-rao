@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL
+
 export const site = {
   name: 'Dr. Geetanand Rao',
   role: 'Medical Oncologist',
@@ -8,7 +10,7 @@ export const site = {
   registration: '105182',
   registrationDate: '18 October 2022',
   council: 'Delhi Medical Council',
-  resume: '/media/Dr-Geetanand-Rao-Resume.pdf',
+  resume: `${base}media/Dr-Geetanand-Rao-Resume.pdf`,
   line: 'Dedicated to providing safe, efficient, and patient-centred cancer care.',
 }
 
@@ -248,7 +250,7 @@ export const certificates = [
       ['Article no.', 'IJISRT21DEC114'],
       ['Document', 'Author certificate'],
     ],
-    image: '/media/cert-parotid.jpg',
+    image: `${base}media/cert-parotid.jpg`,
     imageAlt: 'Original IJISRT author certificate for the parotid squamous cell carcinoma paper',
   },
   {
@@ -265,7 +267,7 @@ export const certificates = [
       ['Article no.', 'IJISRT22MAY1494'],
       ['Document', 'Author certificate'],
     ],
-    image: '/media/cert-bladder.jpg',
+    image: `${base}media/cert-bladder.jpg`,
     imageAlt: 'Original IJISRT author certificate for the urinary bladder neuroendocrine carcinoma paper',
   },
   {
@@ -281,7 +283,7 @@ export const certificates = [
       ['ISSN', '2249-555X'],
       ['Document', 'Certificate of publication'],
     ],
-    image: '/media/cert-pnet.jpg',
+    image: `${base}media/cert-pnet.jpg`,
     imageAlt: 'Original IJAR certificate of publication for the intracranial primitive neuroectodermal tumour paper',
   },
   {
@@ -300,7 +302,7 @@ export const certificates = [
       ['Host', 'S.N. Medical College, Agra'],
       ['Role', 'Poster presentation'],
     ],
-    image: '/media/cert-uparoicon.jpg',
+    image: `${base}media/cert-uparoicon.jpg`,
     imageAlt: 'Original certificate of appreciation from the 32nd UPAROICON 2020',
   },
 ]

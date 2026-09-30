@@ -18,7 +18,7 @@ export default function About() {
         <div className="wrap about-grid">
           <figure className="about-portrait">
             <img
-              src="/media/portrait-blue.jpg"
+              src={`${import.meta.env.BASE_URL}media/portrait-blue.jpg`}
               alt="Dr. Geetanand Rao, arms crossed, wearing a stethoscope"
             />
           </figure>

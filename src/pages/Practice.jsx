@@ -18,7 +18,7 @@ export default function Practice() {
         <div className="wrap practice-intro">
           <figure>
             <img
-              src="/media/portrait-brown.jpg"
+              src={`${import.meta.env.BASE_URL}media/portrait-brown.jpg`}
               alt="Dr. Geetanand Rao in a brown shirt with a stethoscope"
             />
           </figure>

@@ -1,5 +1,10 @@
 # Dr. Geetanand Rao — Medical Oncology Portfolio & Practice Website
 
+[![Live Site](https://img.shields.io/badge/Live%20Website-Visit%20Site-101c19?style=for-the-badge&logo=githubpages&logoColor=white)](https://pankaj2816.github.io/dr-geetanand-rao/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/pankaj2816/dr-geetanand-rao)
+
+> **Live Website**: [https://pankaj2816.github.io/dr-geetanand-rao/](https://pankaj2816.github.io/dr-geetanand-rao/)
+
 A modern, responsive, and editorial portfolio and clinical practice website for **Dr. Geetanand Rao**, a Medical Oncologist (MBBS, MD Radiation Oncology, DrNB Medical Oncology) trained at RNT Medical College Udaipur, PGIMS Rohtak, and Indraprastha Apollo Hospital New Delhi.
 
 ---
