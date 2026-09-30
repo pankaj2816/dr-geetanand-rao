@@ -10,7 +10,6 @@ export const site = {
   registration: '105182',
   registrationDate: '18 October 2022',
   council: 'Delhi Medical Council',
-  resume: `${base}media/Dr-Geetanand-Rao-Resume.pdf`,
   line: 'Dedicated to providing safe, efficient, and patient-centred cancer care.',
 }
 

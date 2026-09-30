@@ -30,10 +30,6 @@ export default function Footer() {
           </p>
           <p>
             <Link to="/contact">Request a consultation</Link>
-            <br />
-            <a href={site.resume} download>
-              Download resume
-            </a>
           </p>
         </div>
       </div>

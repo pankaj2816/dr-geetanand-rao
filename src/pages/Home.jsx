@@ -79,12 +79,6 @@ export default function Home() {
                 alt="A stethoscope resting on warm stone"
               />
             </figure>
-            <figure>
-              <img
-                src={`${import.meta.env.BASE_URL}media/still-light.jpg`}
-                alt="Soft light across a pale wall"
-              />
-            </figure>
           </div>
         </div>
       </section>

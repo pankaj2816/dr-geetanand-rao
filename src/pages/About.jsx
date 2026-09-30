@@ -10,37 +10,10 @@ export default function About() {
       <PageHero
         kicker="About"
         title="Three trainings. One practice."
+        lede="MBBS in Udaipur, MD Radiation Oncology in Rohtak, DrNB Medical Oncology at Apollo, New Delhi. Consults in English and Hindi."
       />
 
       <section className="section">
-        <div className="wrap about-layout">
-          <img
-            className="about-main"
-            src={`${import.meta.env.BASE_URL}media/portrait-blue.jpg`}
-            alt="Dr. Geetanand Rao"
-          />
-          <div className="about-copy">
-            <div className="prose">
-              <p>
-                MBBS in Udaipur, MD Radiation Oncology in Rohtak, DrNB Medical Oncology at Apollo,
-                New Delhi. Consults in English and Hindi.
-              </p>
-              <p>
-                <a className="text-link" href={site.resume} download>
-                  Resume
-                </a>
-              </p>
-            </div>
-            <img
-              className="about-side"
-              src={`${import.meta.env.BASE_URL}media/portrait-brown.jpg`}
-              alt="A second portrait of Dr. Geetanand Rao"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-tight">
         <div className="wrap">
           <div className="section-head">
             <p className="kicker kicker-dark">Education</p>
