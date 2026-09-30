@@ -1,0 +1,21 @@
+# Dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# Production build
+dist
+dist-ssr
+*.local
+
+# Editor & System
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Raw root asset files (clean assets are organized in public/media/)
+/WhatsApp Image*.jpeg
+/Dr Geetanand Rao Resume.pdf
+
