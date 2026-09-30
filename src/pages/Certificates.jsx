@@ -19,11 +19,7 @@ export default function Certificates() {
 
   return (
     <>
-      <PageHero
-        kicker="Certificates"
-        title="The same documents, set in a clearer form."
-        lede="Each certificate is redrawn for the page. The photograph of the original is kept exactly as it was given, and opens beside the redesign."
-      />
+      <PageHero kicker="Certificates" title="Redrawn. Originals kept." />
 
       <section className="section">
         <div className="wrap">

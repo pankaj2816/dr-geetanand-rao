@@ -18,18 +18,21 @@ export const education = [
   {
     years: '2013 — 2019',
     degree: 'MBBS',
+    city: 'Udaipur',
     place: 'RNT Medical College, Udaipur, Rajasthan',
     note: 'First class in MBBS Phase II and Phase III Part II university examinations.',
   },
   {
     years: '2019 — 2022',
     degree: 'MD, Radiation Oncology',
+    city: 'Rohtak',
     place: 'Pt. B.D. Sharma Post Graduate Institute of Medical Sciences, Rohtak, Haryana',
     note: 'Junior resident. Radiation therapy planning, chemotherapy, and medical care of people with cancer, including OPD, IPD, and ICU.',
   },
   {
     years: '2022 — 2025',
     degree: 'DrNB, Medical Oncology',
+    city: 'New Delhi',
     place: 'Indraprastha Apollo Hospital, New Delhi',
     note: 'Senior resident. Systemic therapy for solid tumours, haematological malignancies, and paediatric malignancies.',
   },
@@ -88,26 +91,10 @@ export const memberships = [
 ]
 
 export const focus = [
-  {
-    index: '01',
-    title: 'Systemic therapy',
-    text: 'Chemotherapy, targeted therapy, immunotherapy, and hormone therapy, across the solid, haematological, and paediatric malignancies covered in his DrNB training.',
-  },
-  {
-    index: '02',
-    title: 'Radiation oncology',
-    text: 'An MD in radiation oncology, with training in radiation therapy planning and in the medical care of people receiving treatment for cancer.',
-  },
-  {
-    index: '03',
-    title: 'Procedures that support treatment',
-    text: 'PICC lines, bone marrow aspiration and biopsy, intrathecal therapy, chemoport access, and ascitic and pleural tapping.',
-  },
-  {
-    index: '04',
-    title: 'A clear consultation',
-    text: 'Reports read carefully, options explained in plain language, and a plan shaped around safety and the person in the room.',
-  },
+  { index: '01', title: 'Systemic therapy', line: 'Chemo, targeted, immune, hormone' },
+  { index: '02', title: 'Radiation', line: 'Planning and day-to-day care' },
+  { index: '03', title: 'Procedures', line: 'Lines, marrow, taps' },
+  { index: '04', title: 'Consultation', line: 'Reports, options, a next step' },
 ]
 
 export const procedures = [
@@ -120,45 +107,24 @@ export const procedures = [
 ]
 
 export const therapies = [
-  {
-    title: 'Chemotherapy',
-    text: 'Conventional cytotoxic schedules, including neoadjuvant and treatment for residual, recurrent, and metastatic disease.',
-  },
-  {
-    title: 'Targeted therapy',
-    text: 'Drug treatment directed at specific tumour features, as part of modern medical oncology training.',
-  },
-  {
-    title: 'Immunotherapy',
-    text: 'Immune-based treatment for appropriate cancers, taught during his DrNB at Indraprastha Apollo Hospital.',
-  },
-  {
-    title: 'Hormone therapy',
-    text: 'Endocrine treatment where it forms part of the standard care of a hormone-sensitive cancer.',
-  },
+  { title: 'Chemotherapy', text: 'Including neoadjuvant schedules' },
+  { title: 'Targeted therapy', text: 'Matched to the tumour' },
+  { title: 'Immunotherapy', text: 'Where it is appropriate' },
+  { title: 'Hormone therapy', text: 'For hormone-sensitive cancers' },
 ]
 
 export const groups = [
-  {
-    title: 'Solid tumours',
-    text: 'Breast, head and neck, gynaecological, genitourinary, and other solid cancers reflected in his clinical work and publications.',
-  },
-  {
-    title: 'Haematological malignancies',
-    text: 'Training in the medical management of blood cancers, including bone marrow procedures.',
-  },
-  {
-    title: 'Paediatric malignancies',
-    text: 'Exposure to the care of children with cancer during DrNB medical oncology.',
-  },
+  { title: 'Solid tumours', text: 'Breast, head and neck, gynae, GU' },
+  { title: 'Blood cancers', text: 'Including marrow procedures' },
+  { title: 'Paediatric cancers', text: 'Part of DrNB training' },
 ]
 
 export const visitPrep = [
-  'Histopathology, immunohistochemistry, and molecular reports',
-  'Recent imaging and blood work',
-  'Discharge summaries and previous prescriptions',
-  'A list of medicines and supplements currently being taken',
-  'The questions you most want answered',
+  'Pathology and molecular reports',
+  'Recent scans',
+  'Old prescriptions',
+  'Current medicines',
+  'Your questions',
 ]
 
 export const projects = [
@@ -216,22 +182,22 @@ export const conferences = [
   {
     when: '4–5 May 2019',
     title: 'Controversies in Gynae Oncology',
-    detail: 'Sir Ganga Ram Hospital Update in Oncology-X-2019. Attended.',
+    detail: 'Attended. Sir Ganga Ram Hospital.',
   },
   {
     when: '7–8 March 2020',
     title: 'Best of SABCS, India',
-    detail: 'Paper: clinico-pathological characteristics and treatment outcomes in patients with carcinoma breast.',
+    detail: 'Paper on carcinoma breast.',
   },
   {
     when: '6 June 2021',
     title: '44th Indian Cooperative Oncology Network Conference',
-    detail: 'Poster: carcinosarcoma of the uterus, a rare case entity.',
+    detail: 'Poster. Carcinosarcoma of the uterus.',
   },
   {
     when: '18–19 December 2021',
     title: '32nd UPAROICON 2020',
-    detail: 'Annual state conference of the Association of Radiation Oncologists of India, Uttar Pradesh Chapter. Hotel Ramada Plaza, Agra. Organised by the Department of Radiation Oncology, S.N. Medical College, Agra. Poster on three chemotherapy schedules in residual, recurrent, and metastatic head and neck carcinoma. 2nd prize, best poster.',
+    detail: 'Best poster, 2nd prize. Head and neck chemotherapy schedules. Agra.',
   },
 ]
 

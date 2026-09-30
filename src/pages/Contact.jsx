@@ -55,11 +55,7 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero
-        kicker="Contact"
-        title="Write, or call, and the appointment is arranged from there."
-        lede="There is no online booking calendar. A message opens your email app, addressed to the clinic inbox, ready for you to send."
-      />
+      <PageHero kicker="Contact" title="Call, or write." />
 
       <section className="section">
         <div className="wrap contact-grid">
@@ -74,6 +70,11 @@ export default function Contact() {
             <a className="text-link" href={site.whatsapp} target="_blank" rel="noreferrer">
               Message on WhatsApp
             </a>
+            <img
+              className="contact-photo"
+              src={`${import.meta.env.BASE_URL}media/portrait-blue.jpg`}
+              alt="Dr. Geetanand Rao"
+            />
             <dl>
               <div>
                 <dt>Registration</dt>
@@ -156,10 +157,7 @@ export default function Contact() {
             <button className="btn btn-deep" type="submit">
               Open email to send
             </button>
-            <p className="form-note">
-              Nothing is stored on this website. The note is handed to your email programme so you
-              can review it before it is sent to {site.email}.
-            </p>
+            <p className="form-note">Opens your email to {site.email}. Nothing is stored here.</p>
           </form>
         </div>
       </section>

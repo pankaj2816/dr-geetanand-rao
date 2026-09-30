@@ -1,17 +1,13 @@
 import { Link } from 'react-router-dom'
 import { site } from '../data'
+import Logo from './Logo'
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer-grid">
         <div>
-          <p className="monogram footer-mark" aria-hidden="true">
-            GR
-          </p>
-          <p className="footer-name">{site.name}</p>
-          <p className="footer-role">{site.role}</p>
-          <p className="footer-line">{site.line}</p>
+          <Logo />
         </div>
         <div>
           <p className="footer-label">Registration</p>
@@ -42,10 +38,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="wrap footer-base">
-        <p>
-          This website describes Dr. Rao’s qualifications and training. It is not a substitute for a
-          medical consultation, diagnosis, or emergency care.
-        </p>
+        <p>Information only. Not a substitute for a consultation.</p>
         <p>© {new Date().getFullYear()} {site.name}</p>
       </div>
     </footer>

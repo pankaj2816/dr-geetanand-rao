@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import { usePageTitle } from '../usePageTitle'
 import { education, posts, memberships, site } from '../data'
@@ -10,38 +9,33 @@ export default function About() {
     <>
       <PageHero
         kicker="About"
-        title="A medical oncologist shaped by three stages of training."
-        lede="From undergraduate medicine in Udaipur to radiation oncology in Rohtak and DrNB medical oncology in New Delhi."
+        title="Three trainings. One practice."
       />
 
       <section className="section">
-        <div className="wrap about-grid">
-          <figure className="about-portrait">
+        <div className="wrap about-layout">
+          <img
+            className="about-main"
+            src={`${import.meta.env.BASE_URL}media/portrait-blue.jpg`}
+            alt="Dr. Geetanand Rao"
+          />
+          <div className="about-copy">
+            <div className="prose">
+              <p>
+                MBBS in Udaipur, MD Radiation Oncology in Rohtak, DrNB Medical Oncology at Apollo,
+                New Delhi. Consults in English and Hindi.
+              </p>
+              <p>
+                <a className="text-link" href={site.resume} download>
+                  Resume
+                </a>
+              </p>
+            </div>
             <img
-              src={`${import.meta.env.BASE_URL}media/portrait-blue.jpg`}
-              alt="Dr. Geetanand Rao, arms crossed, wearing a stethoscope"
+              className="about-side"
+              src={`${import.meta.env.BASE_URL}media/portrait-brown.jpg`}
+              alt="A second portrait of Dr. Geetanand Rao"
             />
-          </figure>
-          <div className="prose">
-            <p>
-              Dr. Geetanand Rao is a medical oncologist. He completed his MBBS at RNT Medical
-              College, Udaipur, his MD in Radiation Oncology at Pt. B.D. Sharma PGIMS, Rohtak, and
-              his DrNB in Medical Oncology at Indraprastha Apollo Hospital, New Delhi.
-            </p>
-            <p>
-              The work sits at the meeting point of systemic therapy and radiation oncology:
-              chemotherapy, targeted therapy, immunotherapy, hormone therapy, and the procedures
-              that make treatment possible.
-            </p>
-            <p>
-              He is registered with the {site.council} (registration no. {site.registration},{' '}
-              {site.registrationDate}) and consults in English and Hindi.
-            </p>
-            <p>
-              <a className="text-link" href={site.resume} download>
-                Download the resume
-              </a>
-            </p>
           </div>
         </div>
       </section>
@@ -59,7 +53,6 @@ export default function About() {
                 <div>
                   <h3>{item.degree}</h3>
                   <p className="place">{item.place}</p>
-                  <p>{item.note}</p>
                 </div>
               </li>
             ))}
@@ -70,8 +63,8 @@ export default function About() {
       <section className="section section-tight">
         <div className="wrap">
           <div className="section-head">
-            <p className="kicker kicker-dark">Clinical posts</p>
-            <h2>Where the training was done</h2>
+            <p className="kicker kicker-dark">Posts</p>
+            <h2>The path.</h2>
           </div>
           <div className="post-grid">
             {posts.map((post) => (
@@ -80,7 +73,7 @@ export default function About() {
                 <h3>{post.title}</h3>
                 <p className="place">{post.place}</p>
                 <ul>
-                  {post.points.map((point) => (
+                  {post.points.slice(0, 2).map((point) => (
                     <li key={point}>{point}</li>
                   ))}
                 </ul>
@@ -94,14 +87,7 @@ export default function About() {
         <div className="wrap membership-panel">
           <div>
             <p className="kicker kicker-dark">Standing</p>
-            <h2>Licence and societies</h2>
-            <p>
-              Registered medical practitioner under the {site.council}. Memberships are listed as
-              given on the curriculum vitae.
-            </p>
-            <Link className="text-link" to="/practice">
-              See the clinical practice
-            </Link>
+            <h2>Licence.</h2>
           </div>
           <ul className="society-list">
             <li>

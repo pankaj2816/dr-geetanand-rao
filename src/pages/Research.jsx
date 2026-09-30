@@ -8,11 +8,7 @@ export default function Research() {
 
   return (
     <>
-      <PageHero
-        kicker="Research"
-        title="Papers, posters, and the questions behind them."
-        lede="Publications and conference work drawn from the curriculum vitae, with certificates reproduced on their own page."
-      >
+      <PageHero kicker="Research" title="Papers and posters.">
         <Link className="btn btn-brass" to="/certificates">
           Certificates
         </Link>
@@ -22,22 +18,25 @@ export default function Research() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker kicker-dark">Awards</p>
-            <h2>Academic record</h2>
+            <h2>Record.</h2>
           </div>
-          <div className="award-row">
+          <div className="award-row has-photo">
             <article>
               <p>University</p>
               <h3>First class</h3>
-              <span>MBBS Phase II and Phase III Part II, RNT Medical College, Udaipur.</span>
+              <span>MBBS, RNT Medical College.</span>
             </article>
             <article>
               <p>Conference</p>
               <h3>2nd prize, best poster</h3>
-              <span>
-                32nd UPAROICON 2020, for a comparative study of three chemotherapy schedules in
-                head and neck carcinoma.
-              </span>
+              <span>UPAROICON 2020. Head and neck chemotherapy.</span>
             </article>
+            <figure>
+              <img
+                src={`${import.meta.env.BASE_URL}media/still-desk.jpg`}
+                alt="A stethoscope on a quiet table"
+              />
+            </figure>
           </div>
         </div>
       </section>

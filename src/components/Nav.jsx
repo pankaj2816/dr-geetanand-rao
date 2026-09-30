@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import Logo from './Logo'
 
 const links = [
   ['/', 'Home'],
@@ -36,14 +37,8 @@ export default function Nav() {
   return (
     <header className={`nav ${scrolled || open ? 'is-solid' : ''}`}>
       <div className="nav-inner">
-        <NavLink to="/" className="brand" end>
-          <span className="monogram" aria-hidden="true">
-            GR
-          </span>
-          <span className="brand-text">
-            <strong>Dr. Geetanand Rao</strong>
-            <small>Medical Oncologist</small>
-          </span>
+        <NavLink to="/" className="brand" end aria-label="Dr. Geetanand Rao, home">
+          <Logo />
         </NavLink>
 
         <button
