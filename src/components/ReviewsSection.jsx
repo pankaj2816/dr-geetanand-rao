@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { site, reviews } from '../data'
 import GoogleIcon from './GoogleIcon'
 
@@ -12,11 +12,70 @@ const categories = [
 
 export default function ReviewsSection() {
   const [activeCategory, setActiveCategory] = useState('all')
+  const sliderRef = useRef(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
+  const [activeDot, setActiveDot] = useState(0)
 
   const visibleReviews =
     activeCategory === 'all'
       ? reviews
       : reviews.filter((r) => r.category === activeCategory)
+
+  const checkScroll = () => {
+    const el = sliderRef.current
+    if (!el) return
+    const isAtStart = el.scrollLeft <= 8
+    const isAtEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 8
+
+    setCanScrollLeft(!isAtStart)
+    setCanScrollRight(!isAtEnd)
+
+    // Calculate active slide index
+    const cards = el.querySelectorAll('.review-card')
+    if (cards.length > 0) {
+      const cardWidth = cards[0].offsetWidth + 24
+      const index = Math.round(el.scrollLeft / cardWidth)
+      setActiveDot(Math.max(0, Math.min(index, visibleReviews.length - 1)))
+    }
+  }
+
+  useEffect(() => {
+    checkScroll()
+    const el = sliderRef.current
+    if (!el) return
+    el.addEventListener('scroll', checkScroll, { passive: true })
+    window.addEventListener('resize', checkScroll)
+    return () => {
+      el.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('resize', checkScroll)
+    }
+  }, [visibleReviews])
+
+  const slide = (direction) => {
+    const el = sliderRef.current
+    if (!el) return
+    const firstCard = el.querySelector('.review-card')
+    const scrollAmount = firstCard ? firstCard.offsetWidth + 24 : 420
+
+    el.scrollBy({
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth',
+    })
+  }
+
+  const scrollToIndex = (index) => {
+    const el = sliderRef.current
+    if (!el) return
+    const cards = el.querySelectorAll('.review-card')
+    if (cards[index]) {
+      cards[index].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'start',
+      })
+    }
+  }
 
   return (
     <section className="section reviews-section" id="reviews" aria-label="Patient Reviews">
@@ -67,56 +126,112 @@ export default function ReviewsSection() {
           </a>
         </div>
 
-        <div className="review-filter-bar" role="tablist" aria-label="Filter reviews by category">
-          {categories.map(([id, label]) => (
+        {/* Toolbar: Category Filters + Sliding Arrow Controls in one row */}
+        <div className="reviews-toolbar">
+          <div className="review-filter-bar" role="tablist" aria-label="Filter reviews by category">
+            {categories.map(([id, label]) => (
+              <button
+                key={id}
+                type="button"
+                role="tab"
+                aria-selected={activeCategory === id}
+                className={`review-tab ${activeCategory === id ? 'is-active' : ''}`}
+                onClick={() => {
+                  setActiveCategory(id)
+                  if (sliderRef.current) sliderRef.current.scrollLeft = 0
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          <div className="slider-controls" aria-label="Review sliding controls">
+            <span className="slider-counter" aria-live="polite">
+              0{activeDot + 1} <small>/ 0{visibleReviews.length}</small>
+            </span>
             <button
-              key={id}
               type="button"
-              role="tab"
-              aria-selected={activeCategory === id}
-              className={`review-tab ${activeCategory === id ? 'is-active' : ''}`}
-              onClick={() => setActiveCategory(id)}
+              className="slider-arrow"
+              onClick={() => slide('prev')}
+              disabled={!canScrollLeft}
+              aria-label="Previous review"
+              title="Previous review"
             >
-              {label}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
             </button>
-          ))}
+            <button
+              type="button"
+              className="slider-arrow"
+              onClick={() => slide('next')}
+              disabled={!canScrollRight}
+              aria-label="Next review"
+              title="Next review"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <div className="reviews-grid">
-          {visibleReviews.map((rev) => (
-            <article key={rev.id} className="review-card">
-              <header className="review-card-head">
-                <div className="review-card-stars">
-                  {'★'.repeat(rev.rating)}
-                </div>
-                <span className="verified-pill" title="Verified Google Business Review">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                  </svg>
-                  Verified Patient
-                </span>
-              </header>
+        {/* Single Row Sliding Carousel Track */}
+        <div className="reviews-slider-wrap">
+          <div className="reviews-track" ref={sliderRef}>
+            {visibleReviews.map((rev) => (
+              <article key={rev.id} className="review-card">
+                <header className="review-card-head">
+                  <div className="review-card-stars">
+                    {'★'.repeat(rev.rating)}
+                  </div>
+                  <span className="verified-pill" title="Verified Google Business Review">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    Verified Patient
+                  </span>
+                </header>
 
-              <span className="review-tag">{rev.tag}</span>
+                <span className="review-tag">{rev.tag}</span>
 
-              <blockquote className="review-body">
-                <p>"{rev.text}"</p>
-              </blockquote>
+                <blockquote className="review-body">
+                  <p>"{rev.text}"</p>
+                </blockquote>
 
-              <footer className="review-footer">
-                <div className="author-avatar" aria-hidden="true">
-                  {rev.author.replace('Col. ', '').replace('Dr. ', '').charAt(0)}
-                </div>
-                <div className="author-info">
-                  <strong>{rev.author}</strong>
-                  <small>
-                    {rev.relation} · {rev.location}
-                  </small>
-                </div>
-                <span className="review-date">{rev.date}</span>
-              </footer>
-            </article>
-          ))}
+                <footer className="review-footer">
+                  <div className="author-avatar" aria-hidden="true">
+                    {rev.author.replace('Col. ', '').replace('Dr. ', '').charAt(0)}
+                  </div>
+                  <div className="author-info">
+                    <strong>{rev.author}</strong>
+                    <small>
+                      {rev.relation} · {rev.location}
+                    </small>
+                  </div>
+                  <span className="review-date">{rev.date}</span>
+                </footer>
+              </article>
+            ))}
+          </div>
+
+          {/* Indicator Dots */}
+          {visibleReviews.length > 1 && (
+            <div className="slider-dots" role="tablist" aria-label="Review page dots">
+              {visibleReviews.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeDot === i}
+                  aria-label={`Go to review ${i + 1}`}
+                  className={`slider-dot ${activeDot === i ? 'is-active' : ''}`}
+                  onClick={() => scrollToIndex(i)}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="reviews-cta-banner">
