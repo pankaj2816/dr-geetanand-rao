@@ -6,8 +6,7 @@ const links = [
   ['/', 'Home'],
   ['/about', 'About'],
   ['/practice', 'Practice'],
-  ['/research', 'Research'],
-  ['/certificates', 'Certificates'],
+  ['/credentials', 'Research & Credentials'],
   ['/contact', 'Contact'],
 ]
 

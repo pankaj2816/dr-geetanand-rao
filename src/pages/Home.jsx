@@ -108,8 +108,8 @@ export default function Home() {
               <Link className="btn btn-brass" to="/contact">
                 Book a consult
               </Link>
-              <Link className="btn btn-ghost" to="/certificates">
-                Certificates
+              <Link className="btn btn-ghost" to="/credentials">
+                Credentials
               </Link>
             </div>
             <a
@@ -214,8 +214,8 @@ export default function Home() {
             <p className="kicker kicker-dark">Papers</p>
             <h2>Selected work.</h2>
           </div>
-          <Link className="text-link" to="/research">
-            All research
+          <Link className="text-link" to="/credentials">
+            Research & credentials
           </Link>
         </div>
         <div className="wrap pub-list">
@@ -232,13 +232,13 @@ export default function Home() {
       </section>
 
       <section className="section section-tight">
-        <Link className="wrap award-banner" to="/certificates">
+        <Link className="wrap award-banner" to="/credentials">
           <strong>2nd</strong>
           <span>
             Best poster
             <small>UPAROICON 2020 · Agra</small>
           </span>
-          <em>View certificate</em>
+          <em>View credentials</em>
         </Link>
       </section>
 
