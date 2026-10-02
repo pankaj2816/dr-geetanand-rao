@@ -100,7 +100,7 @@ export const memberships = [
 
 export const focus = [
   { index: '01', title: 'Systemic therapy', line: 'Chemo, targeted, immune, hormone' },
-  { index: '02', title: 'Radiation', line: 'Planning and day-to-day care' },
+  { index: '02', title: 'Targeted oncology', line: 'Molecular & precision therapy' },
   { index: '03', title: 'Procedures', line: 'Lines, marrow, taps' },
   { index: '04', title: 'Consultation', line: 'Reports, options, a next step' },
 ]
@@ -341,7 +341,7 @@ export const reviews = [
     tag: 'Second Opinion & Staging',
     rating: 5,
     date: 'Second Opinion Consultation',
-    text: 'I consulted Dr. Rao at Park Hospital for an oncology second opinion. His dual mastery in radiation oncology and medical oncology offered clinical insights no other specialist had shared. Completely transparent, methodical, and zero unnecessary interventions. Rare to find such clinical integrity.',
+    text: 'I consulted Dr. Rao at Park Hospital for an oncology second opinion. His comprehensive mastery in medical oncology offered clinical insights no other specialist had shared. Completely transparent, methodical, and zero unnecessary interventions. Rare to find such clinical integrity.',
   },
   {
     id: 'verma',
