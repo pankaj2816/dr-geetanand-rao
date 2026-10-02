@@ -100,7 +100,7 @@ export const memberships = [
 
 export const focus = [
   { index: '01', title: 'Systemic therapy', line: 'Chemo, targeted, immune, hormone' },
-  { index: '02', title: 'Targeted oncology', line: 'Molecular & precision therapy' },
+  { index: '02', title: 'Palliative care', line: 'Symptom relief, pain, quality of life' },
   { index: '03', title: 'Procedures', line: 'Lines, marrow, taps' },
   { index: '04', title: 'Consultation', line: 'Reports, options, a next step' },
 ]
