@@ -102,23 +102,23 @@ export default function ReviewsSection() {
                 <GoogleIcon size={20} />
               </span>
               <div>
-                <strong>Google Business</strong>
-                <small>Verified Profile · Gurugram</small>
+                <strong>Google Business Profile</strong>
+                <small>Official Profile · Gurugram</small>
               </div>
             </div>
 
             <div className="google-trust-score">
               <span className="rating-number">{site.googleRating}</span>
               <div>
-                <div className="stars-row" aria-label="5 out of 5 stars">
+                <div className="stars-row" aria-label="5.0 out of 5 rating on Google">
                   ★★★★★
                 </div>
-                <span className="review-subtext">5.0 / 5.0 Rating</span>
+                <span className="review-subtext">Google Listing Score</span>
               </div>
             </div>
 
             <span className="google-trust-action">
-              <span>Read on Google Search</span>
+              <span>Read Reviews on Google</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
@@ -169,11 +169,11 @@ export default function ReviewsSection() {
                   <div className="review-card-stars">
                     {'★'.repeat(rev.rating)}
                   </div>
-                  <span className="verified-pill" title="Verified Google Business Review">
+                  <span className="verified-pill" title="Verified Consultation Experience">
                     <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
                       <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                     </svg>
-                    Verified Patient
+                    Verified Experience
                   </span>
                 </header>
 

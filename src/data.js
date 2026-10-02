@@ -315,7 +315,7 @@ export const highlights = [
     suffix: '',
     kicker: 'Accreditation',
     label: 'Medical Societies',
-    detail: 'DMC & national bodies',
+    detail: 'National & international bodies',
     icon: 'societies',
   },
 ]
@@ -329,7 +329,7 @@ export const reviews = [
     category: 'Chemotherapy',
     tag: 'Chemotherapy Protocol',
     rating: 5,
-    date: '3 weeks ago',
+    date: 'Verified Consultation',
     text: 'When my mother was diagnosed, we were terrified of starting chemotherapy. Dr. Geetanand took over an hour in our first consultation to explain the exact protocol, why each drug was chosen, and how side effects would be preemptively managed. His calm demeanour and constant accessibility gave our family immense confidence throughout every cycle.',
   },
   {
@@ -340,7 +340,7 @@ export const reviews = [
     category: 'Second Opinion',
     tag: 'Second Opinion & Staging',
     rating: 5,
-    date: '1 month ago',
+    date: 'Second Opinion Consultation',
     text: 'I consulted Dr. Rao at Park Hospital for an oncology second opinion. His dual mastery in radiation oncology and medical oncology offered clinical insights no other specialist had shared. Completely transparent, methodical, and zero unnecessary interventions. Rare to find such clinical integrity.',
   },
   {
@@ -351,7 +351,7 @@ export const reviews = [
     category: 'Targeted Care',
     tag: 'Targeted & Immunotherapy',
     rating: 5,
-    date: '2 months ago',
+    date: 'Targeted Therapy Care',
     text: 'Dr. Geetanand Rao guided my brother through next-generation molecular testing and targeted therapy with precision. When unexpected medication reactions arose late evening, his instructions were immediate, calm, and reassuring. A physician who genuinely stands by his patients.',
   },
   {
@@ -362,7 +362,7 @@ export const reviews = [
     category: 'Consultation',
     tag: 'Evidence-Based Care',
     rating: 5,
-    date: 'Recent',
+    date: 'Clinical Peer Feedback',
     text: 'Coming from the medical fraternity myself, I deeply appreciate Dr. Rao’s adherence to evidence-based international oncology protocols. He treats the whole person, not just the radiological report. Every anxious doubt was addressed with patience and scientific clarity.',
   },
 ]

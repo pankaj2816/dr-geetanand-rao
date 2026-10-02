@@ -260,23 +260,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-
-          <div className="cred-timeline-band">
-            <div className="cred-timeline-badge">
-              <span>Medical Training</span>
-              <small>3 Premier Institutions</small>
-            </div>
-            <div className="cred-timeline-cards">
-              {education.map((item) => (
-                <article key={item.degree} className="cred-degree-card">
-                  <span className="cred-degree-years">{item.years}</span>
-                  <h3 className="cred-degree-title">{item.degree}</h3>
-                  <p className="cred-degree-place">{item.place.split(',')[0]}</p>
-                  <span className="cred-degree-city">{item.city}</span>
-                </article>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
