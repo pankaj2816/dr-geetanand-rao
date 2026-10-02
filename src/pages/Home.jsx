@@ -298,16 +298,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-tight">
-        <Link className="wrap award-banner" to="/credentials">
-          <strong>2nd</strong>
-          <span>
-            Best poster
-            <small>UPAROICON 2020 · Agra</small>
-          </span>
-          <em>View credentials</em>
-        </Link>
-      </section>
 
       <ReviewsSection />
 
