@@ -17,6 +17,15 @@ export default function Contact() {
   usePageTitle('Contact')
   const [values, setValues] = useState(empty)
   const [errors, setErrors] = useState({})
+  const [copied, setCopied] = useState(false)
+
+  function handleCopyNumber() {
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(site.phoneDisplay)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2200)
+    }
+  }
 
   function update(event) {
     const { name, value } = event.target
@@ -60,28 +69,74 @@ export default function Contact() {
       <section className="section">
         <div className="wrap contact-grid">
           <aside className="contact-card">
-            <p className="kicker kicker-dark">Direct</p>
-            <a className="phone" href={`tel:${site.phoneTel}`}>
-              {site.phoneDisplay}
-            </a>
-            <a className="mail" href={`mailto:${site.email}`}>
-              {site.email}
-            </a>
-            <a className="text-link" href={site.whatsapp} target="_blank" rel="noreferrer">
-              Message on WhatsApp
-            </a>
+            <div className="contact-card-header">
+              <p className="kicker kicker-dark">Direct Consultation</p>
+              <span className="contact-status-pill">
+                <span className="status-dot" aria-hidden="true" />
+                By Appointment
+              </span>
+            </div>
+
+            <div className="contact-direct-box">
+              <span className="contact-channel-label">Mobile & WhatsApp</span>
+              <div className="contact-phone-row">
+                <a className="contact-phone-number" href={`tel:${site.phoneTel}`}>
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <span>{site.phoneDisplay}</span>
+                </a>
+                <button
+                  type="button"
+                  className={`contact-copy-btn ${copied ? 'is-copied' : ''}`}
+                  onClick={handleCopyNumber}
+                  title="Copy telephone number"
+                  aria-label="Copy telephone number"
+                >
+                  {copied ? 'Copied ✓' : 'Copy'}
+                </button>
+              </div>
+
+              <div className="contact-action-pills">
+                <a className="contact-pill-btn btn-call" href={`tel:${site.phoneTel}`}>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  </svg>
+                  Call Now
+                </a>
+                <a className="contact-pill-btn btn-wa" href={site.whatsapp} target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.78 14.18c-.24.68-1.2 1.26-1.66 1.34-.43.08-.99.12-2.88-.66-2.42-.99-3.97-3.47-4.09-3.63-.12-.16-.99-1.32-.99-2.52 0-1.2.62-1.79.84-2.03.22-.24.48-.3.64-.3.16 0 .32.01.46.01.15 0 .35-.06.55.42.2.48.68 1.66.74 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.49.14.24.63 1.04 1.35 1.68.93.83 1.71 1.09 1.95 1.21.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.18 1.26z" />
+                  </svg>
+                  WhatsApp ↗
+                </a>
+              </div>
+            </div>
+
+            <div className="contact-email-box">
+              <span className="contact-channel-label">Direct Email</span>
+              <a className="contact-email-link" href={`mailto:${site.email}`}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>{site.email}</span>
+              </a>
+            </div>
+
             <img
               className="contact-photo"
               src={`${import.meta.env.BASE_URL}media/portrait-blue.jpg`}
               alt="Dr. Geetanand Rao"
             />
-            <dl>
+
+            <dl className="contact-details-dl">
               <div>
-                <dt>Clinic</dt>
+                <dt>Clinic Location</dt>
                 <dd>
                   <strong>{site.clinic}</strong>
                   <br />
-                  {site.address}
+                  <span className="address-line">{site.address}</span>
                   <div className="contact-links-row">
                     <a className="text-link" href={site.googleMapsDirections} target="_blank" rel="noreferrer">
                       Get Directions ↗
@@ -95,7 +150,7 @@ export default function Contact() {
               <div>
                 <dt>Registration</dt>
                 <dd>
-                  {site.council}, {site.registration}
+                  <span>{site.council}</span> · <strong className="reg-num">Reg. {site.registration}</strong>
                 </dd>
               </div>
               <div>
