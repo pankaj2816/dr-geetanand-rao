@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react'
 import { usePageTitle } from '../usePageTitle'
 import { site, focus, education, publications, memberships, highlights } from '../data'
 import ReviewsSection from '../components/ReviewsSection'
-import GoogleIcon from '../components/GoogleIcon'
 
 function StatIcon({ type }) {
   if (type === 'experience') {
@@ -137,11 +136,35 @@ export default function Home() {
                 OPD Consultations · {site.clinic}
               </span>
             </div>
-            <h1>
-              Geetanand
-              <span>Rao</span>
-            </h1>
-            <p className="hero-line">Clear plans. Careful treatment.</p>
+            <div className="hero-identity-lockup">
+              <div className="hero-title-group">
+                <h1>
+                  Geetanand
+                  <span>Rao</span>
+                </h1>
+                <p className="hero-line">Clear plans. Careful treatment.</p>
+              </div>
+
+              <div className="hero-mobile-avatar-wrap" aria-label="Dr. Geetanand Rao">
+                <div className="hero-mobile-avatar-frame">
+                  <img
+                    src={`${import.meta.env.BASE_URL}media/portrait-front.jpg`}
+                    alt="Dr. Geetanand Rao"
+                  />
+                  <span className="hero-mobile-verified" title={`Verified by ${site.council}`}>
+                    <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                  </span>
+                </div>
+                <div className="hero-mobile-degree-tags">
+                  <span>MBBS</span>
+                  <span>MD</span>
+                  <span>DrNB</span>
+                </div>
+              </div>
+            </div>
+
             <p className="hero-desc">
               Dedicated cancer care specializing in evidence-based systemic therapies, targeted protocols, and compassionate patient management.
             </p>
@@ -159,18 +182,6 @@ export default function Home() {
                 </svg>
               </Link>
             </div>
-            <a
-              className="hero-google-badge"
-              href={site.googleBusinessUrl}
-              target="_blank"
-              rel="noreferrer"
-              title="Verified Oncologist on Google Business · Park Hospital, Gurugram"
-            >
-              <GoogleIcon size={16} />
-              <span>
-                <strong>5.0 ★★★★★</strong> Verified on Google · {site.addressShort}
-              </span>
-            </a>
           </div>
 
           <div className="hero-aside-wrap">
