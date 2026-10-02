@@ -1514,30 +1514,18 @@ h1, h2, h3, p { margin: 0; }
   border-color: var(--deep);
 }
 
-/* Sliding Arrows & Counter */
-.slider-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin-left: auto;
-}
-.slider-counter {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  color: var(--ink);
-  letter-spacing: 0.04em;
-  margin-right: 0.4rem;
-  font-variant-numeric: tabular-nums;
-}
-.slider-counter small {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-.slider-arrow {
-  width: 44px;
-  height: 44px;
+/* Side Navigation Arrows for Reviews Carousel */
+.slider-arrow-side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--bg);
+  background: rgba(251, 248, 242, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--line);
   color: var(--ink);
   display: flex;
@@ -1545,19 +1533,30 @@ h1, h2, h3, p { margin: 0; }
   justify-content: center;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(16, 28, 25, 0.04);
+  box-shadow: 0 4px 18px rgba(16, 28, 25, 0.12);
 }
-.slider-arrow:hover:not(:disabled) {
+
+.slider-arrow-prev {
+  left: -24px;
+}
+
+.slider-arrow-next {
+  right: -24px;
+}
+
+.slider-arrow-side:hover:not(:disabled) {
   background: var(--deep);
   color: var(--white);
   border-color: var(--deep);
-  transform: scale(1.06);
-  box-shadow: 0 4px 14px rgba(16, 28, 25, 0.15);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 8px 24px rgba(16, 28, 25, 0.22);
 }
-.slider-arrow:disabled {
-  opacity: 0.3;
+
+.slider-arrow-side:disabled {
+  opacity: 0.18;
   cursor: not-allowed;
-  transform: none;
+  pointer-events: none;
+  transform: translateY(-50%);
 }
 
 /* Single Row Sliding Carousel */
@@ -1807,10 +1806,11 @@ h1, h2, h3, p { margin: 0; }
     align-items: stretch;
     gap: 1rem;
   }
-  .slider-controls {
-    justify-content: space-between;
-    width: 100%;
-    margin-left: 0;
+  .slider-arrow-prev {
+    left: -10px;
+  }
+  .slider-arrow-next {
+    right: -10px;
   }
   .reviews-track .review-card {
     flex: 0 0 100%;

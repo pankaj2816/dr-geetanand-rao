@@ -126,7 +126,7 @@ export default function ReviewsSection() {
           </a>
         </div>
 
-        {/* Toolbar: Category Filters + Sliding Arrow Controls in one row */}
+        {/* Toolbar: Category Filters */}
         <div className="reviews-toolbar">
           <div className="review-filter-bar" role="tablist" aria-label="Filter reviews by category">
             {categories.map(([id, label]) => (
@@ -145,40 +145,23 @@ export default function ReviewsSection() {
               </button>
             ))}
           </div>
-
-          <div className="slider-controls" aria-label="Review sliding controls">
-            <span className="slider-counter" aria-live="polite">
-              0{activeDot + 1} <small>/ 0{visibleReviews.length}</small>
-            </span>
-            <button
-              type="button"
-              className="slider-arrow"
-              onClick={() => slide('prev')}
-              disabled={!canScrollLeft}
-              aria-label="Previous review"
-              title="Previous review"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              className="slider-arrow"
-              onClick={() => slide('next')}
-              disabled={!canScrollRight}
-              aria-label="Next review"
-              title="Next review"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
         </div>
 
-        {/* Single Row Sliding Carousel Track */}
+        {/* Single Row Sliding Carousel Track with Side Navigation Arrows */}
         <div className="reviews-slider-wrap">
+          <button
+            type="button"
+            className="slider-arrow-side slider-arrow-prev"
+            onClick={() => slide('prev')}
+            disabled={!canScrollLeft}
+            aria-label="Previous review"
+            title="Previous review"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </button>
+
           <div className="reviews-track" ref={sliderRef}>
             {visibleReviews.map((rev) => (
               <article key={rev.id} className="review-card">
@@ -215,6 +198,19 @@ export default function ReviewsSection() {
               </article>
             ))}
           </div>
+
+          <button
+            type="button"
+            className="slider-arrow-side slider-arrow-next"
+            onClick={() => slide('next')}
+            disabled={!canScrollRight}
+            aria-label="Next review"
+            title="Next review"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
 
           {/* Indicator Dots */}
           {visibleReviews.length > 1 && (
