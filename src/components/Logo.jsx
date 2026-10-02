@@ -51,14 +51,10 @@ export default function Logo({ compact = false }) {
             G
           </text>
 
-          {/* The Letter R (Right) */}
+          {/* The Letter R (Right, 100% Clean) */}
           <text x="82" y="88" fontFamily="'Playfair Display', Georgia, serif" fontSize="82" fontWeight="700" fill="url(#nav-gold)" textAnchor="middle">
             R
           </text>
-
-          {/* Cancer Awareness Ribbon (Around R) */}
-          <path d="M86 52 C77 42, 76 32, 85 25 C94 18, 103 25, 96 35 L80 64 C76 70, 75 78, 74 85" stroke="url(#nav-ribbon)" strokeWidth="4.5" strokeLinecap="round" fill="none" />
-          <path d="M94 33 L106 60 C110 68, 112 76, 113 83" stroke="url(#nav-ribbon)" strokeWidth="4.5" strokeLinecap="round" fill="none" />
         </g>
       </svg>
       <span className="logo-words">

@@ -10,13 +10,6 @@ const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 440" w
       <stop offset="100%" stop-color="#04221b" />
     </linearGradient>
 
-    <!-- Hope Cancer Awareness Ribbon Gradient -->
-    <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#df8a9d" />
-      <stop offset="45%" stop-color="#bd667a" />
-      <stop offset="100%" stop-color="#883145" />
-    </linearGradient>
-
     <!-- Healing Sage Leaf -->
     <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#72b09d" />
@@ -47,7 +40,7 @@ const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 440" w
     <!-- Rose Petal Leaf -->
     <path d="M58 90 C46 72, 40 48, 56 28 C70 34, 78 58, 58 90 Z" fill="url(#petalGrad)"/>
 
-    <!-- Clean Flourish Stem: Curves gently under G ONLY, never crossing into R! -->
+    <!-- Clean Flourish Stem: Curves gently under G ONLY -->
     <path d="M46 114 C36 138, 56 160, 95 162 C135 164, 168 152, 178 136" 
           stroke="url(#emGrad)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
 
@@ -66,7 +59,7 @@ const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 440" w
       G
     </text>
 
-    <!-- The Letter R (Right, Completely Clean) -->
+    <!-- The Letter R (Right, Completely Clean, No pink A shape!) -->
     <text x="288" y="152" 
           font-family="'Playfair Display', Georgia, serif" 
           font-size="160" 
@@ -75,12 +68,6 @@ const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 440" w
           text-anchor="middle">
       R
     </text>
-
-    <!-- Cancer Awareness Ribbon (Clean, refined ribbon around R) -->
-    <path d="M305 82 C292 64, 290 46, 305 34 C320 22, 335 34, 324 54 L295 106 C290 115, 287 130, 285 142" 
-          stroke="url(#ribbonGrad)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
-    <path d="M318 48 L342 98 C348 112, 352 128, 354 142" 
-          stroke="url(#ribbonGrad)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
   </g>
 
   <!-- ====== TYPOGRAPHY ====== -->

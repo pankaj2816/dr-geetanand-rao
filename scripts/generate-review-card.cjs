@@ -60,7 +60,7 @@ const oncologyEmblemSvg = `
       G
     </text>
 
-    <!-- Letter R -->
+    <!-- Letter R (100% Clean) -->
     <text x="288" y="152" 
           font-family="'Playfair Display', Georgia, serif" 
           font-size="160" 
@@ -69,12 +69,6 @@ const oncologyEmblemSvg = `
           text-anchor="middle">
       R
     </text>
-
-    <!-- Cancer Awareness Ribbon -->
-    <path d="M305 82 C292 64, 290 46, 305 34 C320 22, 335 34, 324 54 L295 106 C290 115, 287 130, 285 142" 
-          stroke="url(#cRibbon)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
-    <path d="M318 48 L342 98 C348 112, 352 128, 354 142" 
-          stroke="url(#cRibbon)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
   </g>
 </svg>
 `;
