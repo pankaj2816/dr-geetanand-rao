@@ -3,9 +3,42 @@ import { useEffect, useRef, useState } from 'react'
 import { usePageTitle } from '../usePageTitle'
 import { site, focus, education, publications, memberships, highlights } from '../data'
 
-function CountUp({ value, suffix = '' }) {
+function DigitReel({ digit, started, delay }) {
+  const target = parseInt(digit, 10)
+  const isNumber = !Number.isNaN(target)
+
+  if (!isNumber) {
+    return <span className="digit-char">{digit}</span>
+  }
+
+  // Prepend a cycle so even single digits (3, 5, 6, 7) glide with realistic momentum
+  const items = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9].slice(0, 10 + target + 1)
+  const targetIndex = items.length - 1
+  const transform = started ? `translateY(-${targetIndex * 1.08}em)` : 'translateY(0em)'
+
+  return (
+    <span className="digit-window" aria-hidden="true">
+      <span
+        className="digit-track"
+        style={{
+          transform,
+          transitionDelay: `${delay}ms`,
+        }}
+      >
+        {items.map((num, i) => (
+          <span key={i} className="digit-cell">
+            {num}
+          </span>
+        ))}
+      </span>
+    </span>
+  )
+}
+
+function SmoothCounter({ value, suffix = '', delay = 0 }) {
   const ref = useRef(null)
-  const [shown, setShown] = useState(0)
+  const [started, setStarted] = useState(false)
+  const digits = String(value).split('')
 
   useEffect(() => {
     const node = ref.current
@@ -13,39 +46,44 @@ function CountUp({ value, suffix = '' }) {
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduce) {
-      setShown(value)
+      setStarted(true)
       return undefined
     }
 
-    let frame = 0
-    let started = false
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting || started) return
-        started = true
-        const start = performance.now()
-        const duration = 1200
-        const tick = (now) => {
-          const progress = Math.min(1, (now - start) / duration)
-          const eased = 1 - (1 - progress) ** 3
-          setShown(Math.round(eased * value))
-          if (progress < 1) frame = requestAnimationFrame(tick)
+        if (entry.isIntersecting) {
+          setStarted(true)
+          observer.disconnect()
         }
-        frame = requestAnimationFrame(tick)
       },
-      { threshold: 0.5 },
+      { threshold: 0.35, rootMargin: '0px 0px -40px 0px' },
     )
+
     observer.observe(node)
-    return () => {
-      observer.disconnect()
-      cancelAnimationFrame(frame)
-    }
-  }, [value])
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <strong ref={ref}>
-      {shown}
-      {suffix}
+    <strong
+      ref={ref}
+      className={`smooth-stat ${started ? 'is-active' : ''}`}
+      aria-label={`${value}${suffix}`}
+    >
+      <span className="digit-group" aria-hidden="true">
+        {digits.map((d, i) => (
+          <DigitReel key={i} digit={d} started={started} delay={delay + i * 90} />
+        ))}
+      </span>
+      {suffix ? (
+        <span
+          className="stat-suffix"
+          style={{ transitionDelay: `${delay + 1150}ms` }}
+          aria-hidden="true"
+        >
+          {suffix}
+        </span>
+      ) : null}
     </strong>
   )
 }
@@ -99,7 +137,7 @@ export default function Home() {
         <div className="wrap stat-grid">
           {highlights.map((item, index) => (
             <article key={item.label} style={{ animationDelay: `${0.08 + index * 0.1}s` }}>
-              <CountUp value={item.value} suffix={item.suffix} />
+              <SmoothCounter value={item.value} suffix={item.suffix} delay={index * 130} />
               <span>{item.label}</span>
             </article>
           ))}
