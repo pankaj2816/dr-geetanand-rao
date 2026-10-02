@@ -7,7 +7,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     width: 1200px;
-    height: 650px;
+    height: 620px;
     background: transparent;
     display: flex;
     align-items: center;
@@ -15,12 +15,12 @@
   }
   svg {
     width: 1100px;
-    height: 595px;
+    height: 569px;
   }
 </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 460" width="850" height="460" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 440" width="850" height="440" fill="none">
   <defs>
     <!-- Deep Medical Emerald Gradient -->
     <linearGradient id="emGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -53,17 +53,10 @@
       <stop offset="0%" stop-color="#cc7588" />
       <stop offset="100%" stop-color="#963f52" />
     </linearGradient>
-
-    <!-- Gold Accent -->
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fdf3e0" />
-      <stop offset="50%" stop-color="#d6af68" />
-      <stop offset="100%" stop-color="#9c6f28" />
-    </linearGradient>
   </defs>
 
   <!-- ====== MONOGRAM EMBLEM ====== -->
-  <g transform="translate(205, 15)">
+  <g transform="translate(205, 10)">
 
     <!-- Botanical Flora (Left) -->
     <!-- Main Green Leaf -->
@@ -73,13 +66,13 @@
     <!-- Rose Petal Leaf -->
     <path d="M58 90 C46 72, 40 48, 56 28 C70 34, 78 58, 58 90 Z" fill="url(#petalGrad)"/>
 
-    <!-- Base Organic Flourish Stem curving under G and R -->
-    <path d="M46 114 C38 138, 58 158, 90 162 C135 167, 210 164, 315 152" 
+    <!-- Clean Flourish Stem: Curves gently under G ONLY, never crossing into R! -->
+    <path d="M46 114 C36 138, 56 160, 95 162 C135 164, 168 152, 178 136" 
           stroke="url(#emGrad)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
 
-    <!-- Survivorship Figure (Joyous human rising with outstretched arms - Victory Over Cancer) -->
-    <circle cx="218" cy="26" r="14" fill="url(#figGrad)"/>
-    <path d="M190 52 C202 42, 214 37, 218 37 C222 37, 234 42, 246 52 C238 62, 226 76, 218 88 C210 76, 198 62, 190 52 Z" 
+    <!-- Survivorship Figure (Joyous human rising between G & R - Triumph Over Cancer) -->
+    <circle cx="218" cy="24" r="14" fill="url(#figGrad)"/>
+    <path d="M190 50 C202 40, 214 35, 218 35 C222 35, 234 40, 246 50 C238 60, 226 74, 218 86 C210 74, 198 60, 190 50 Z" 
           fill="url(#figGrad)"/>
 
     <!-- The Letter G (Left, Classical Serif) -->
@@ -92,7 +85,7 @@
       G
     </text>
 
-    <!-- The Letter R (Right, Interlocking Serif) -->
+    <!-- The Letter R (Right, Completely Clean) -->
     <text x="288" y="152" 
           font-family="'Playfair Display', Georgia, serif" 
           font-size="160" 
@@ -102,19 +95,16 @@
       R
     </text>
 
-    <!-- Cancer Awareness Ribbon (Woven beautifully around the R on the right) -->
-    <path d="M298 90 C282 72, 280 54, 296 42 C312 30, 328 42, 316 60 L286 112 C280 122, 278 136, 276 148" 
-          stroke="url(#ribbonGrad)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
-    <path d="M312 56 L334 104 C342 120, 346 134, 348 146" 
-          stroke="url(#ribbonGrad)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
-
-    <!-- Small Hope Diamond Spark -->
-    <circle cx="297" cy="88" r="3.5" fill="url(#goldGrad)"/>
+    <!-- Cancer Awareness Ribbon (Clean, refined ribbon around R) -->
+    <path d="M305 82 C292 64, 290 46, 305 34 C320 22, 335 34, 324 54 L295 106 C290 115, 287 130, 285 142" 
+          stroke="url(#ribbonGrad)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+    <path d="M318 48 L342 98 C348 112, 352 128, 354 142" 
+          stroke="url(#ribbonGrad)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
   </g>
 
   <!-- ====== TYPOGRAPHY ====== -->
   <!-- Doctor Name -->
-  <text x="425" y="275" 
+  <text x="425" y="270" 
         font-family="'Playfair Display', Georgia, serif" 
         font-size="52" 
         font-weight="700" 
@@ -125,8 +115,8 @@
   </text>
 
   <!-- Subtitle: MEDICAL ONCOLOGIST with flanking rules -->
-  <line x1="120" y1="322" x2="245" y2="322" stroke="#bd667a" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
-  <text x="425" y="328" 
+  <line x1="120" y1="316" x2="245" y2="316" stroke="#bd667a" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+  <text x="425" y="322" 
         font-family="'Plus Jakarta Sans', sans-serif" 
         font-size="21" 
         font-weight="700" 
@@ -135,10 +125,10 @@
         letter-spacing="0.22em">
     MEDICAL ONCOLOGIST
   </text>
-  <line x1="605" y1="322" x2="730" y2="322" stroke="#bd667a" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+  <line x1="605" y1="316" x2="730" y2="316" stroke="#bd667a" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
 
   <!-- Tagline: Compassion · Expertise · Hope -->
-  <text x="425" y="380" 
+  <text x="425" y="375" 
         font-family="'Plus Jakarta Sans', sans-serif" 
         font-size="18" 
         font-weight="500" 

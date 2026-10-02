@@ -42,12 +42,12 @@ const oncologyEmblemSvg = `
     <path d="M46 114 C22 102, 8 76, 23 46 C42 50, 58 74, 46 114 Z" fill="url(#cLeaf)"/>
     <path d="M28 64 Q 36 82 46 114" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" opacity="0.45" fill="none"/>
     <path d="M58 90 C46 72, 40 48, 56 28 C70 34, 78 58, 58 90 Z" fill="url(#cPetal)"/>
-    <path d="M46 114 C38 138, 58 158, 90 162 C135 167, 210 164, 315 152" 
+    <path d="M46 114 C36 138, 56 160, 95 162 C135 164, 168 152, 178 136" 
           stroke="url(#cEm)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
 
     <!-- Survivorship Figure -->
-    <circle cx="218" cy="26" r="14" fill="url(#cFig)"/>
-    <path d="M190 52 C202 42, 214 37, 218 37 C222 37, 234 42, 246 52 C238 62, 226 76, 218 88 C210 76, 198 62, 190 52 Z" 
+    <circle cx="218" cy="24" r="14" fill="url(#cFig)"/>
+    <path d="M190 50 C202 40, 214 35, 218 35 C222 35, 234 40, 246 50 C238 60, 226 74, 218 86 C210 74, 198 60, 190 50 Z" 
           fill="url(#cFig)"/>
 
     <!-- Letter G -->
@@ -71,11 +71,10 @@ const oncologyEmblemSvg = `
     </text>
 
     <!-- Cancer Awareness Ribbon -->
-    <path d="M298 90 C282 72, 280 54, 296 42 C312 30, 328 42, 316 60 L286 112 C280 122, 278 136, 276 148" 
-          stroke="url(#cRibbon)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
-    <path d="M312 56 L334 104 C342 120, 346 134, 348 146" 
-          stroke="url(#cRibbon)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
-    <circle cx="297" cy="88" r="3.5" fill="url(#cGold)"/>
+    <path d="M305 82 C292 64, 290 46, 305 34 C320 22, 335 34, 324 54 L295 106 C290 115, 287 130, 285 142" 
+          stroke="url(#cRibbon)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+    <path d="M318 48 L342 98 C348 112, 352 128, 354 142" 
+          stroke="url(#cRibbon)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
   </g>
 </svg>
 `;
