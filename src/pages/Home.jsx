@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { usePageTitle } from '../usePageTitle'
 import { site, focus, education, publications, memberships, highlights } from '../data'
+import ReviewsSection from '../components/ReviewsSection'
+import GoogleIcon from '../components/GoogleIcon'
 
 function DigitReel({ digit, started, delay }) {
   const target = parseInt(digit, 10)
@@ -110,6 +112,18 @@ export default function Home() {
                 Certificates
               </Link>
             </div>
+            <a
+              className="hero-google-badge"
+              href={site.googleBusinessUrl}
+              target="_blank"
+              rel="noreferrer"
+              title="Verified Oncologist on Google Business · Park Hospital, Gurugram"
+            >
+              <GoogleIcon size={16} />
+              <span>
+                <strong>5.0 ★★★★★</strong> Verified on Google · {site.addressShort}
+              </span>
+            </a>
           </div>
           <ol className="hero-aside">
             {education.map((item) => (
@@ -227,6 +241,8 @@ export default function Home() {
           <em>View certificate</em>
         </Link>
       </section>
+
+      <ReviewsSection />
 
       <section className="close-band">
         <div className="wrap close-row">

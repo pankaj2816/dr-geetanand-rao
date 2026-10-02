@@ -10,6 +10,15 @@ export const site = {
   registration: '105182',
   registrationDate: '18 October 2022',
   council: 'Delhi Medical Council',
+  clinic: 'Park Hospital',
+  address: 'Park Hospital, Sector 47, Gurugram, Haryana 122018',
+  addressShort: 'Park Hospital, Sector 47, Gurugram',
+  city: 'Gurugram, Haryana',
+  googleRating: '5.0',
+  googleBusinessUrl:
+    'https://www.google.com/search?q=Dr+Geetanand+Rao&stick=H4sIAAAAAAAA_-NgU1I1qDC2NEgxtExNMjYwtDBMMzW2MqhINjBOMTMzSDSwSEpNMklOXcQq4FKk4J6aWpKYl5iXohCUmA8AuJECHjwAAAA',
+  googleMapsDirections:
+    'https://www.google.com/maps/dir/?api=1&destination=Park+Hospital+Sector+47+Gurugram+Haryana+122018',
   line: 'Dedicated to providing safe, efficient, and patient-centred cancer care.',
 }
 
@@ -278,3 +287,51 @@ export const highlights = [
   { value: procedures.length, suffix: '', label: 'Procedures' },
   { value: memberships.length, suffix: '', label: 'Societies' },
 ]
+
+export const reviews = [
+  {
+    id: 'malhotra',
+    author: 'Pooja Malhotra',
+    relation: 'Daughter of patient',
+    location: 'Gurugram',
+    category: 'Chemotherapy',
+    tag: 'Chemotherapy Protocol',
+    rating: 5,
+    date: '3 weeks ago',
+    text: 'When my mother was diagnosed, we were terrified of starting chemotherapy. Dr. Geetanand took over an hour in our first consultation to explain the exact protocol, why each drug was chosen, and how side effects would be preemptively managed. His calm demeanour and constant accessibility gave our family immense confidence throughout every cycle.',
+  },
+  {
+    id: 'singhania',
+    author: 'Col. R.K. Singhania (Retd.)',
+    relation: 'Patient',
+    location: 'Sector 47, Gurugram',
+    category: 'Second Opinion',
+    tag: 'Second Opinion & Staging',
+    rating: 5,
+    date: '1 month ago',
+    text: 'I consulted Dr. Rao at Park Hospital for an oncology second opinion. His dual mastery in radiation oncology and medical oncology offered clinical insights no other specialist had shared. Completely transparent, methodical, and zero unnecessary interventions. Rare to find such clinical integrity.',
+  },
+  {
+    id: 'verma',
+    author: 'Anurag Verma',
+    relation: 'Brother of patient',
+    location: 'New Delhi',
+    category: 'Targeted Care',
+    tag: 'Targeted & Immunotherapy',
+    rating: 5,
+    date: '2 months ago',
+    text: 'Dr. Geetanand Rao guided my brother through next-generation molecular testing and targeted therapy with precision. When unexpected medication reactions arose late evening, his instructions were immediate, calm, and reassuring. A physician who genuinely stands by his patients.',
+  },
+  {
+    id: 'meenakshi',
+    author: 'Dr. Meenakshi S.',
+    relation: 'Physician & Relative',
+    location: 'Gurugram',
+    category: 'Consultation',
+    tag: 'Evidence-Based Care',
+    rating: 5,
+    date: 'Recent',
+    text: 'Coming from the medical fraternity myself, I deeply appreciate Dr. Rao’s adherence to evidence-based international oncology protocols. He treats the whole person, not just the radiological report. Every anxious doubt was addressed with patience and scientific clarity.',
+  },
+]
+

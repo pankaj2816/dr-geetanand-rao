@@ -77,6 +77,22 @@ export default function Contact() {
             />
             <dl>
               <div>
+                <dt>Clinic</dt>
+                <dd>
+                  <strong>{site.clinic}</strong>
+                  <br />
+                  {site.address}
+                  <div className="contact-links-row">
+                    <a className="text-link" href={site.googleMapsDirections} target="_blank" rel="noreferrer">
+                      Get Directions ↗
+                    </a>
+                    <a className="text-link" href={site.googleBusinessUrl} target="_blank" rel="noreferrer">
+                      Google Profile ↗
+                    </a>
+                  </div>
+                </dd>
+              </div>
+              <div>
                 <dt>Registration</dt>
                 <dd>
                   {site.council}, {site.registration}
@@ -88,7 +104,7 @@ export default function Contact() {
               </div>
               <div>
                 <dt>Timing</dt>
-                <dd>By appointment. The clinic and slot are confirmed when you call or write.</dd>
+                <dd>By appointment. OPD consultations at Park Hospital, Gurugram.</dd>
               </div>
             </dl>
           </aside>

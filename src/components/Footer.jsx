@@ -8,6 +8,29 @@ export default function Footer() {
       <div className="wrap footer-grid">
         <div>
           <Logo />
+          <p className="footer-clinic-note">
+            Oncologist at {site.clinic}, Gurugram
+          </p>
+          <a
+            className="footer-google-link"
+            href={site.googleBusinessUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Google Business Profile ↗
+          </a>
+        </div>
+        <div>
+          <p className="footer-label">Location</p>
+          <p>
+            <strong>{site.clinic}</strong>
+            <br />
+            {site.address}
+            <br />
+            <a className="footer-directions" href={site.googleMapsDirections} target="_blank" rel="noreferrer">
+              Get Directions ↗
+            </a>
+          </p>
         </div>
         <div>
           <p className="footer-label">Registration</p>
@@ -15,8 +38,6 @@ export default function Footer() {
             {site.council}
             <br />
             Reg. no. {site.registration}
-            <br />
-            {site.registrationDate}
           </p>
           <p className="footer-label">Languages</p>
           <p>English and Hindi</p>
