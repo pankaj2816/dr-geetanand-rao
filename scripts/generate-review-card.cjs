@@ -4,80 +4,79 @@ const path = require('path');
 const qrPath = path.resolve(__dirname, '../public/review-qr.png');
 const qrBase64 = fs.readFileSync(qrPath).toString('base64');
 
-// The Imperial Asclepius & Laurel Wreath Medallion SVG
-const imperialMedallionSvg = `
-<svg viewBox="0 0 160 160" fill="none" width="100%" height="100%">
+// Dr. Janki Choudhary Inspired Oncology Ribbon & Flora Emblem
+const oncologyEmblemSvg = `
+<svg viewBox="0 0 450 200" fill="none" width="300" height="135">
   <defs>
-    <linearGradient id="medallion-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fffbf2" />
-      <stop offset="25%" stop-color="#f2d7a6" />
-      <stop offset="60%" stop-color="#ca9f55" />
-      <stop offset="100%" stop-color="#8a5a1a" />
+    <linearGradient id="cEm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#145a4c" />
+      <stop offset="60%" stop-color="#0c3d32" />
+      <stop offset="100%" stop-color="#04221b" />
     </linearGradient>
-    <linearGradient id="medallion-sheen" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#ca9f55" />
-      <stop offset="50%" stop-color="#fffbf2" />
-      <stop offset="100%" stop-color="#ca9f55" />
+    <linearGradient id="cRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#df8a9d" />
+      <stop offset="45%" stop-color="#bd667a" />
+      <stop offset="100%" stop-color="#883145" />
     </linearGradient>
-    <radialGradient id="medallion-bg" cx="50%" cy="36%" r="68%">
-      <stop offset="0%" stop-color="#184a3b" />
-      <stop offset="60%" stop-color="#0c251e" />
-      <stop offset="100%" stop-color="#040e0b" />
-    </radialGradient>
-    <filter id="medallion-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0c251e" flood-opacity="0.35"/>
-    </filter>
+    <linearGradient id="cLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#72b09d" />
+      <stop offset="100%" stop-color="#2d6f5c" />
+    </linearGradient>
+    <linearGradient id="cPetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e5a4b1" />
+      <stop offset="100%" stop-color="#b8697a" />
+    </linearGradient>
+    <linearGradient id="cFig" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#cc7588" />
+      <stop offset="100%" stop-color="#963f52" />
+    </linearGradient>
+    <linearGradient id="cGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf3e0" />
+      <stop offset="50%" stop-color="#d6af68" />
+      <stop offset="100%" stop-color="#9c6f28" />
+    </linearGradient>
   </defs>
 
-  <!-- Base Signet Disc with 3D Bevel -->
-  <circle cx="80" cy="80" r="74" fill="url(#medallion-bg)" stroke="url(#medallion-gold)" stroke-width="3" filter="url(#medallion-shadow)"/>
-  <circle cx="80" cy="80" r="66" stroke="url(#medallion-gold)" stroke-width="1" stroke-dasharray="2.5 3.5" opacity="0.75"/>
-  <circle cx="80" cy="80" r="62" stroke="url(#medallion-gold)" stroke-width="0.6" opacity="0.45"/>
+  <g transform="translate(15, 10)">
+    <!-- Botanical Flora (Left) -->
+    <path d="M46 114 C22 102, 8 76, 23 46 C42 50, 58 74, 46 114 Z" fill="url(#cLeaf)"/>
+    <path d="M28 64 Q 36 82 46 114" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" opacity="0.45" fill="none"/>
+    <path d="M58 90 C46 72, 40 48, 56 28 C70 34, 78 58, 58 90 Z" fill="url(#cPetal)"/>
+    <path d="M46 114 C38 138, 58 158, 90 162 C135 167, 210 164, 315 152" 
+          stroke="url(#cEm)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
 
-  <!-- Left Laurel Wreath -->
-  <g fill="url(#medallion-gold)">
-    <path d="M48 114 C39 104, 34 90, 36 76 C37 63, 43 51, 52 42" stroke="url(#medallion-gold)" stroke-width="1.6" fill="none"/>
-    <path d="M48 114 C44 110, 39 113, 41 108 C44 104, 49 107, 48 114 Z"/>
-    <path d="M41 105 C35 102, 33 107, 34 100 C36 94, 42 97, 41 105 Z"/>
-    <path d="M37 92 C30 90, 29 95, 30 88 C32 82, 38 85, 37 92 Z"/>
-    <path d="M36 78 C29 77, 28 82, 29 75 C31 69, 37 72, 36 78 Z"/>
-    <path d="M38 64 C32 62, 32 67, 34 60 C37 54, 42 57, 38 64 Z"/>
-    <path d="M43 51 C38 48, 39 53, 42 46 C45 40, 49 44, 43 51 Z"/>
-    <path d="M51 42 C47 38, 49 43, 52 37 C57 32, 59 37, 51 42 Z"/>
+    <!-- Survivorship Figure -->
+    <circle cx="218" cy="26" r="14" fill="url(#cFig)"/>
+    <path d="M190 52 C202 42, 214 37, 218 37 C222 37, 234 42, 246 52 C238 62, 226 76, 218 88 C210 76, 198 62, 190 52 Z" 
+          fill="url(#cFig)"/>
+
+    <!-- Letter G -->
+    <text x="142" y="152" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="160" 
+          font-weight="700" 
+          fill="url(#cEm)" 
+          text-anchor="middle">
+      G
+    </text>
+
+    <!-- Letter R -->
+    <text x="288" y="152" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="160" 
+          font-weight="700" 
+          fill="url(#cEm)" 
+          text-anchor="middle">
+      R
+    </text>
+
+    <!-- Cancer Awareness Ribbon -->
+    <path d="M298 90 C282 72, 280 54, 296 42 C312 30, 328 42, 316 60 L286 112 C280 122, 278 136, 276 148" 
+          stroke="url(#cRibbon)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+    <path d="M312 56 L334 104 C342 120, 346 134, 348 146" 
+          stroke="url(#cRibbon)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+    <circle cx="297" cy="88" r="3.5" fill="url(#cGold)"/>
   </g>
-
-  <!-- Right Laurel Wreath -->
-  <g fill="url(#medallion-gold)">
-    <path d="M112 114 C121 104, 126 90, 124 76 C123 63, 117 51, 108 42" stroke="url(#medallion-gold)" stroke-width="1.6" fill="none"/>
-    <path d="M112 114 C116 110, 121 113, 119 108 C116 104, 111 107, 112 114 Z"/>
-    <path d="M119 105 C125 102, 127 107, 126 100 C124 94, 118 97, 119 105 Z"/>
-    <path d="M123 92 C130 90, 131 95, 130 88 C128 82, 122 85, 123 92 Z"/>
-    <path d="M124 78 C131 77, 132 82, 131 75 C129 69, 123 72, 124 78 Z"/>
-    <path d="M122 64 C128 62, 128 67, 126 60 C123 54, 118 57, 122 64 Z"/>
-    <path d="M117 51 C122 48, 121 53, 118 46 C115 40, 111 44, 117 51 Z"/>
-    <path d="M109 42 C113 38, 111 43, 108 37 C103 32, 101 37, 109 42 Z"/>
-  </g>
-
-  <!-- Central Rod of Asclepius -->
-  <line x1="80" y1="32" x2="80" y2="120" stroke="url(#medallion-gold)" stroke-width="3.2" stroke-linecap="round"/>
-  <circle cx="80" cy="31" r="4.2" fill="url(#medallion-gold)"/>
-  <circle cx="80" cy="121" r="2.6" fill="url(#medallion-gold)"/>
-
-  <!-- Asclepius Serpent -->
-  <path d="M80 40 C 93 42, 93 54, 80 58 C 67 62, 67 74, 80 78 C 93 82, 93 94, 80 98 C 68 102, 70 110, 77 114" 
-        stroke="url(#medallion-sheen)" stroke-width="3.4" stroke-linecap="round" fill="none"/>
-
-  <!-- Classical Sculpted Letter G -->
-  <path d="M62 64 C62 55, 54 51, 46 56 C38 61, 38 75, 46 81 C54 86, 62 81, 62 72 H50" 
-        stroke="url(#medallion-gold)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <line x1="50" y1="72" x2="62" y2="72" stroke="url(#medallion-gold)" stroke-width="3.4" stroke-linecap="round"/>
-
-  <!-- Classical Sculpted Letter R -->
-  <path d="M98 54 V84 M98 54 H109 C116 54, 120 58, 120 64 C120 70, 116 74, 109 74 H98 M108 74 L120 85" 
-        stroke="url(#medallion-gold)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-
-  <!-- Pinnacle 8-Point Healing Star -->
-  <path d="M80 14 L81.8 19 L87 20.8 L81.8 22.6 L80 27.6 L78.2 22.6 L73 20.8 L78.2 19 Z" fill="url(#medallion-gold)"/>
 </svg>
 `;
 
@@ -117,7 +116,7 @@ const htmlContent = `<!DOCTYPE html>
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 70px 75px;
+    padding: 60px 75px;
   }
 
   /* Outer Border */
@@ -127,22 +126,22 @@ const htmlContent = `<!DOCTYPE html>
     left: 36px;
     right: 36px;
     bottom: 36px;
-    border: 2px solid #e2d7c5;
+    border: 2px solid #e5ded2;
     border-radius: 32px;
     pointer-events: none;
   }
 
-  /* Inner Fine Gold Border */
+  /* Inner Fine Border */
   .card-border-inner {
     position: absolute;
     top: 48px;
     left: 48px;
     right: 48px;
     bottom: 48px;
-    border: 1.5px solid #d4b57e;
+    border: 1.5px solid #bd667a;
     border-radius: 24px;
     pointer-events: none;
-    opacity: 0.75;
+    opacity: 0.35;
   }
 
   /* Corner Ornaments */
@@ -150,9 +149,10 @@ const htmlContent = `<!DOCTYPE html>
     position: absolute;
     width: 36px;
     height: 36px;
-    border-color: #b89758;
+    border-color: #bd667a;
     border-style: solid;
     pointer-events: none;
+    opacity: 0.6;
   }
   .tl { top: 62px; left: 62px; border-width: 3px 0 0 3px; }
   .tr { top: 62px; right: 62px; border-width: 3px 3px 0 0; }
@@ -161,62 +161,71 @@ const htmlContent = `<!DOCTYPE html>
 
   /* Monogram Logo */
   .logo-wrap {
-    width: 135px;
-    height: 135px;
-    margin-bottom: 22px;
+    margin-bottom: 12px;
   }
 
   .doctor-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 56px;
+    font-size: 54px;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    color: #0c251e;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-
-  .doctor-spec {
-    font-size: 25px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #9a6f33;
-    margin-bottom: 12px;
-  }
-
-  .doctor-sub {
-    font-size: 21px;
-    font-weight: 500;
-    color: #435951;
     letter-spacing: 0.02em;
+    color: #0c2e26;
     margin-bottom: 8px;
   }
 
-  .clinic-name {
+  .doctor-spec {
     font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #b85f73;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .doctor-spec::before, .doctor-spec::after {
+    content: '';
+    width: 60px;
+    height: 1.5px;
+    background: #bd667a;
+    opacity: 0.7;
+  }
+
+  .doctor-sub {
+    font-size: 20px;
+    font-weight: 500;
+    color: #435951;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .clinic-name {
+    font-size: 21px;
     font-weight: 600;
     color: #17382f;
   }
 
   /* Divider */
   .divider {
-    width: 320px;
+    width: 280px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #c5a367, transparent);
-    margin: 26px 0 28px 0;
+    background: linear-gradient(90deg, transparent, #bd667a, transparent);
+    margin: 22px 0 24px 0;
     position: relative;
+    opacity: 0.7;
   }
   .divider::after {
-    content: '◆';
+    content: '🌸';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 14px;
-    color: #bfa168;
     background: #ffffff;
-    padding: 0 12px;
+    padding: 0 8px;
   }
 
   /* Review Box / Hero */
@@ -225,16 +234,16 @@ const htmlContent = `<!DOCTYPE html>
     align-items: center;
     justify-content: center;
     gap: 16px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .google-g {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
   }
 
   .review-heading {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 800;
     color: #0b221b;
     letter-spacing: -0.01em;
@@ -246,7 +255,7 @@ const htmlContent = `<!DOCTYPE html>
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .star {
@@ -261,7 +270,7 @@ const htmlContent = `<!DOCTYPE html>
     line-height: 1.45;
     color: #384f47;
     max-width: 820px;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
     font-weight: 500;
   }
 
@@ -270,8 +279,8 @@ const htmlContent = `<!DOCTYPE html>
     background: #ffffff;
     padding: 24px;
     border-radius: 36px;
-    box-shadow: 0 22px 55px rgba(13, 40, 32, 0.12), 0 0 0 2px #e3dacd;
-    margin-bottom: 26px;
+    box-shadow: 0 20px 50px rgba(13, 40, 32, 0.10), 0 0 0 2px #e3dacd;
+    margin-bottom: 24px;
     position: relative;
   }
 
@@ -279,33 +288,34 @@ const htmlContent = `<!DOCTYPE html>
     content: '';
     position: absolute;
     inset: 10px;
-    border: 1px dashed #cfba96;
+    border: 1px dashed #c99ba6;
     border-radius: 28px;
     pointer-events: none;
+    opacity: 0.7;
   }
 
   .qr-image {
-    width: 440px;
-    height: 440px;
+    width: 430px;
+    height: 430px;
     display: block;
     image-rendering: pixelated;
   }
 
   /* Scan instruction badge */
   .scan-badge {
-    background: #0d2a21;
+    background: #0d2e26;
     color: #fcebd2;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 15px 42px;
+    padding: 14px 40px;
     border-radius: 50px;
     display: inline-flex;
     align-items: center;
     gap: 14px;
     box-shadow: 0 8px 24px rgba(13, 42, 33, 0.28);
-    margin-bottom: 26px;
+    margin-bottom: 24px;
   }
 
   .scan-badge svg {
@@ -327,7 +337,7 @@ const htmlContent = `<!DOCTYPE html>
     color: #1a73e8;
     text-decoration: none;
     letter-spacing: 0.01em;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     display: inline-block;
   }
 
@@ -343,7 +353,7 @@ const htmlContent = `<!DOCTYPE html>
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #bfa168;
+    background: #bd667a;
     display: inline-block;
   }
 </style>
@@ -358,9 +368,9 @@ const htmlContent = `<!DOCTYPE html>
   <div class="corner-decor bl"></div>
   <div class="corner-decor br"></div>
 
-  <!-- Refined Logo -->
+  <!-- Oncology Flora & Ribbon Emblem -->
   <div class="logo-wrap">
-    ${imperialMedallionSvg}
+    ${oncologyEmblemSvg}
   </div>
 
   <!-- Doctor Identification -->

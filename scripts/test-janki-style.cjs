@@ -1,0 +1,195 @@
+const fs = require('fs');
+const path = require('path');
+
+const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #f8faf9;
+    color: #112620;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .logo-card {
+    background: #ffffff;
+    padding: 50px 70px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(15, 62, 51, 0.08);
+    border: 1px solid #e5ede9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .title-tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b5863c;
+    margin-bottom: 25px;
+  }
+
+  svg {
+    display: block;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGO CONCEPT: DR. GEETANAND RAO PRECISION ONCOLOGY (Dr. Janki Choudhary Inspired) -->
+<div class="logo-card">
+  <div class="title-tag">Dr. Janki Choudhary Inspired · Oncology Ribbon & Healing Flora</div>
+  
+  <svg viewBox="0 0 650 380" width="650" height="380" fill="none">
+    <defs>
+      <!-- Deep Emerald Gradient -->
+      <linearGradient id="emGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#145244" />
+        <stop offset="50%" stop-color="#0b382e" />
+        <stop offset="100%" stop-color="#051f19" />
+      </linearGradient>
+
+      <!-- Warm Oncology Gold Gradient -->
+      <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fdf4e2" />
+        <stop offset="35%" stop-color="#e2bf80" />
+        <stop offset="70%" stop-color="#c19346" />
+        <stop offset="100%" stop-color="#805417" />
+      </linearGradient>
+
+      <!-- Hope Lavender / Rose Cancer Ribbon Gradient -->
+      <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#d993a4" />
+        <stop offset="50%" stop-color="#b8697c" />
+        <stop offset="100%" stop-color="#8a3f51" />
+      </linearGradient>
+
+      <!-- Fresh Healing Leaf Green -->
+      <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#86b8a8" />
+        <stop offset="100%" stop-color="#3b7d6a" />
+      </linearGradient>
+
+      <!-- Petal Rose Gold -->
+      <linearGradient id="petalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#e8afba" />
+        <stop offset="100%" stop-color="#ba7584" />
+      </linearGradient>
+    </defs>
+
+    <!-- ====== MONOGRAM EMBLEM (TOP CENTER) ====== -->
+    <g transform="translate(195, 10)">
+      
+      <!-- Healing Botanical Leaves & Rose Petals on the Left -->
+      <!-- Leaf 1 (Emerald/Sage) -->
+      <path d="M48 95 C30 85, 20 62, 32 40 C48 42, 60 60, 48 95 Z" fill="url(#leafGrad)" opacity="0.9"/>
+      <path d="M35 55 Q 42 70 48 95" stroke="#ffffff" stroke-width="1.2" opacity="0.5" fill="none"/>
+
+      <!-- Leaf 2 (Smaller Rose Petal) -->
+      <path d="M58 75 C50 60, 46 42, 58 28 C70 32, 75 52, 58 75 Z" fill="url(#petalGrad)" opacity="0.85"/>
+
+      <!-- Flourish stem anchor -->
+      <path d="M48 95 C 45 110, 58 128, 78 135 C 105 145, 140 142, 175 136" 
+            stroke="url(#emGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+      <!-- ====== LETTER G (Tall Regal Serif) ====== -->
+      <!-- Outer elegant C-arc of G -->
+      <path d="M125 45 C115 28, 92 24, 75 35 C55 48, 52 82, 68 105 C82 124, 112 125, 130 112 C142 103, 146 88, 146 72 H102" 
+            stroke="url(#emGrad)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Top Serif of G -->
+      <path d="M120 46 L130 38" stroke="url(#emGrad)" stroke-width="7" stroke-linecap="round"/>
+
+      <!-- ====== LETTER R (Interlocking with G) ====== -->
+      <!-- Vertical Stem of R -->
+      <path d="M135 30 V122" stroke="url(#emGrad)" stroke-width="8" stroke-linecap="round"/>
+      <!-- Top Serif on R stem -->
+      <line x1="126" y1="30" x2="148" y2="30" stroke="url(#emGrad)" stroke-width="4.5" stroke-linecap="round"/>
+      <!-- Bottom Serif on R stem -->
+      <line x1="126" y1="122" x2="145" y2="122" stroke="url(#emGrad)" stroke-width="4.5" stroke-linecap="round"/>
+
+      <!-- Bowl of R -->
+      <path d="M135 30 H168 C188 30, 202 42, 202 58 C202 74, 188 85, 168 85 H135" 
+            stroke="url(#emGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+      <!-- Graceful Extended Leg of R -->
+      <path d="M165 85 C175 85, 185 96, 194 112 C200 122, 206 128, 218 128" 
+            stroke="url(#emGrad)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+
+      <!-- ====== CANCER AWARENESS RIBBON (Woven through the R) ====== -->
+      <!-- Ribbon Loop at top -->
+      <path d="M172 70 C162 60, 162 48, 172 40 C182 32, 194 40, 186 52 L164 88 C160 94, 158 104, 156 114" 
+            stroke="url(#ribbonGrad)" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+      <!-- Crossing fold of ribbon -->
+      <path d="M184 48 L202 85 C208 97, 212 108, 214 118" 
+            stroke="url(#ribbonGrad)" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+
+      <!-- Joyous Life / Healing Star (Hope Beacon above the monogram) -->
+      <path d="M152 14 L154.5 21 L161 23.5 L154.5 26 L152 33 L149.5 26 L143 23.5 L149.5 21 Z" fill="url(#goldGrad)"/>
+    </g>
+
+    <!-- ====== TYPOGRAPHY LOCKUP ====== -->
+    <!-- Doctor Name -->
+    <text x="325" y="235" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="44" 
+          font-weight="700" 
+          fill="#0c2e26" 
+          text-anchor="middle"
+          letter-spacing="0.02em">
+      Dr. Geetanand Rao
+    </text>
+
+    <!-- Subtitle: MEDICAL ONCOLOGIST with flanking accent lines -->
+    <g transform="translate(325, 275)">
+      <!-- Left Gold Line -->
+      <line x1="-240" y1="0" x2="-140" y2="0" stroke="url(#goldGrad)" stroke-width="1.8" stroke-linecap="round"/>
+      
+      <!-- Text -->
+      <text x="0" y="5" 
+            font-family="'Plus Jakarta Sans', sans-serif" 
+            font-size="18" 
+            font-weight="700" 
+            fill="#a37636" 
+            text-anchor="middle" 
+            letter-spacing="0.22em">
+        MEDICAL ONCOLOGIST
+      </text>
+
+      <!-- Right Gold Line -->
+      <line x1="140" y1="0" x2="240" y2="0" stroke="url(#goldGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Tagline: Compassion · Precision · Hope -->
+    <text x="325" y="325" 
+          font-family="'Plus Jakarta Sans', sans-serif" 
+          font-size="16" 
+          font-weight="500" 
+          fill="#4a665d" 
+          text-anchor="middle" 
+          letter-spacing="0.12em">
+      Precision Oncology &nbsp;•&nbsp; Compassion &nbsp;•&nbsp; Hope & Healing
+    </text>
+  </svg>
+</div>
+
+</body>
+</html>
+`;
+
+fs.writeFileSync(path.resolve(__dirname, 'test-janki-style.html'), html);
+console.log('HTML written');

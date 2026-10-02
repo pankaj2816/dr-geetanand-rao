@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 460" width="850" height="460" fill="none">
+const fs = require('fs');
+const path = require('path');
+
+const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 460" width="850" height="460" fill="none">
   <defs>
     <!-- Deep Medical Emerald Gradient -->
     <linearGradient id="emGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -126,3 +129,41 @@
     Compassion &nbsp;•&nbsp; Expertise &nbsp;•&nbsp; Hope & Healing
   </text>
 </svg>
+`;
+
+// Save standalone SVG
+const svgPath = path.resolve(__dirname, '../public/dr-geetanand-rao-logo.svg');
+fs.writeFileSync(svgPath, logoSvg);
+console.log('Final SVG written to', svgPath);
+
+// HTML wrapper for high-res PNG export
+const htmlWrapper = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 650px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  svg {
+    width: 1100px;
+    height: 595px;
+  }
+</style>
+</head>
+<body>
+${logoSvg}
+</body>
+</html>
+`;
+
+const htmlPath = path.resolve(__dirname, 'render-final-logo.html');
+fs.writeFileSync(htmlPath, htmlWrapper);
+console.log('HTML written to', htmlPath);

@@ -1,0 +1,188 @@
+const fs = require('fs');
+const path = require('path');
+
+const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #ffffff;
+    color: #112620;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-card {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="logo-card">
+  <svg viewBox="0 0 750 420" width="750" height="420" fill="none">
+    <defs>
+      <!-- Deep Rich Emerald / Dark Teal Gradient -->
+      <linearGradient id="mainEm" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#114f42" />
+        <stop offset="50%" stop-color="#0a3930" />
+        <stop offset="100%" stop-color="#05241e" />
+      </linearGradient>
+
+      <!-- Cancer Awareness Rose Ribbon Gradient -->
+      <linearGradient id="cancerRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#d48295" />
+        <stop offset="45%" stop-color="#ba6578" />
+        <stop offset="100%" stop-color="#8c394c" />
+      </linearGradient>
+
+      <!-- Warm Medical Gold -->
+      <linearGradient id="warmGold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fdf4e2" />
+        <stop offset="35%" stop-color="#dfbd7e" />
+        <stop offset="70%" stop-color="#be9045" />
+        <stop offset="100%" stop-color="#805419" />
+      </linearGradient>
+
+      <!-- Healing Sage Leaf -->
+      <linearGradient id="leafSage" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6fa896" />
+        <stop offset="100%" stop-color="#2d6e5c" />
+      </linearGradient>
+
+      <!-- Healing Rose Petal -->
+      <linearGradient id="petalRose" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#e2a1ae" />
+        <stop offset="100%" stop-color="#b66779" />
+      </linearGradient>
+
+      <!-- Survivorship Figure Rose Gradient -->
+      <linearGradient id="figGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#c97587" />
+        <stop offset="100%" stop-color="#9e475a" />
+      </linearGradient>
+    </defs>
+
+    <!-- ====== SCULPTED ONCOLOGY MONOGRAM EMBLEM ====== -->
+    <g transform="translate(230, 20)">
+
+      <!-- 1. Botanical Healing Leaves & Petals on Left (Life & Vitality) -->
+      <!-- Sage Green Main Leaf -->
+      <path d="M42 118 C20 108, 8 82, 22 55 C40 58, 55 80, 42 118 Z" fill="url(#leafSage)" opacity="0.95"/>
+      <path d="M26 72 Q 34 88 42 118" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.5" fill="none"/>
+
+      <!-- Rose Petal (Hope & Healing) -->
+      <path d="M54 96 C42 80, 36 58, 50 40 C64 45, 72 68, 54 96 Z" fill="url(#petalRose)" opacity="0.9"/>
+      <path d="M44 60 Q 48 76 54 96" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.4" fill="none"/>
+
+      <!-- Graceful Base Flourish / Stem (Connecting flora into G) -->
+      <path d="M38 118 C35 138, 54 154, 82 158 C120 163, 175 160, 220 152" 
+            stroke="url(#mainEm)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+      <!-- 2. Survivorship Figure (Joyous Human Rising between G & R - Triumph Over Cancer) -->
+      <!-- Head / Halo of hope -->
+      <circle cx="152" cy="32" r="11" fill="url(#figGrad)"/>
+      <!-- Outstretched Reaching Arms & Torso (Embodying Recovery) -->
+      <path d="M128 54 C138 46, 148 42, 152 42 C156 42, 166 46, 176 54 C168 62, 158 72, 152 82 C146 72, 136 62, 128 54 Z" 
+            fill="url(#figGrad)" opacity="0.92"/>
+
+      <!-- 3. LETTER G (Sculpted Classical Serif Letterform) -->
+      <!-- Main Elegant Crescent Body -->
+      <path d="M136 56 C124 38, 98 32, 78 44 C52 60, 48 100, 68 128 C86 150, 122 152, 144 136 C158 124, 164 106, 164 88 H114 V100 H148 C144 116, 128 134, 102 134 C78 134, 66 112, 66 88 C66 64, 82 48, 106 48 C122 48, 134 56, 138 64 L152 56 Z" 
+            fill="url(#mainEm)"/>
+      <!-- Top Serif Flourish on G -->
+      <path d="M136 48 C144 42, 150 40, 154 36 C148 44, 144 50, 138 56 Z" fill="url(#mainEm)"/>
+
+      <!-- 4. LETTER R (Sculpted Classical Serif Letterform, Interlocking) -->
+      <!-- Vertical Stem of R with Top and Bottom Serifs -->
+      <rect x="146" y="44" width="13" height="106" fill="url(#mainEm)"/>
+      <!-- Top Serif Bracket -->
+      <path d="M135 44 H168 V50 H159 V44 H146 Z" fill="url(#mainEm)"/>
+      <path d="M136 44 H168 C160 44, 159 48, 159 52 V54 H146 V52 C146 48, 145 44, 136 44 Z" fill="url(#mainEm)"/>
+      <!-- Bottom Base Serif Bracket -->
+      <path d="M136 150 H168 C160 150, 159 146, 159 142 V140 H146 V142 C146 146, 145 150, 136 150 Z" fill="url(#mainEm)"/>
+
+      <!-- Upper Loop / Bowl of R -->
+      <path d="M159 44 H192 C216 44, 230 57, 230 76 C230 94, 215 106, 192 106 H159 V94 H190 C206 94, 216 86, 216 76 C216 65, 206 56, 190 56 H159 V44 Z" 
+            fill="url(#mainEm)"/>
+
+      <!-- Sculpted Sweeping Leg of R -->
+      <path d="M186 102 C198 102, 210 114, 222 134 C230 146, 238 152, 252 152 V146 C242 146, 234 140, 226 128 C216 112, 204 102, 192 100 L186 102 Z" 
+            fill="url(#mainEm)"/>
+
+      <!-- 5. CANCER AWARENESS RIBBON (Woven through the R & G) -->
+      <!-- Loop top -->
+      <path d="M198 84 C186 70, 184 56, 196 46 C208 36, 222 46, 212 60 L188 104 C184 112, 182 124, 180 136" 
+            stroke="url(#cancerRibbon)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+      <!-- Front crossing tail of the ribbon -->
+      <path d="M210 56 L230 98 C236 112, 240 126, 242 138" 
+            stroke="url(#cancerRibbon)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+
+      <!-- Golden Healing Node / Spark of Precision -->
+      <circle cx="199" cy="80" r="3" fill="url(#warmGold)"/>
+    </g>
+
+    <!-- ====== TYPOGRAPHY LOCKUP ====== -->
+    <!-- Doctor Name in Majestic Serif -->
+    <text x="375" y="260" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="48" 
+          font-weight="700" 
+          fill="#0a362d" 
+          text-anchor="middle"
+          letter-spacing="0.01em">
+      Dr. Geetanand Rao
+    </text>
+
+    <!-- Subtitle: MEDICAL ONCOLOGIST with elegant flanking hairline rules -->
+    <g transform="translate(375, 305)">
+      <!-- Left Thin Line -->
+      <line x1="-280" y1="0" x2="-160" y2="0" stroke="url(#cancerRibbon)" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+      
+      <!-- Text -->
+      <text x="0" y="6" 
+            font-family="'Plus Jakarta Sans', sans-serif" 
+            font-size="20" 
+            font-weight="700" 
+            fill="#a55d6e" 
+            text-anchor="middle" 
+            letter-spacing="0.22em">
+        MEDICAL ONCOLOGIST
+      </text>
+
+      <!-- Right Thin Line -->
+      <line x1="160" y1="0" x2="280" y2="0" stroke="url(#cancerRibbon)" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+    </g>
+
+    <!-- Tagline: Compassion · Expertise · Hope -->
+    <text x="375" y="358" 
+          font-family="'Plus Jakarta Sans', sans-serif" 
+          font-size="17" 
+          font-weight="500" 
+          fill="#3b5e54" 
+          text-anchor="middle" 
+          letter-spacing="0.14em">
+      Compassion &nbsp;•&nbsp; Precision &nbsp;•&nbsp; Hope & Healing
+    </text>
+  </svg>
+</div>
+
+</body>
+</html>
+`;
+
+fs.writeFileSync(path.resolve(__dirname, 'test-janki-v2.html'), html);
+console.log('HTML written');
