@@ -301,13 +301,54 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="wrap society-rail" aria-label="Societies">
-        {memberships.map((item) => (
-          <span key={item.short} title={item.name}>
-            {item.short}
-          </span>
-        ))}
-        <span title={site.council}>DMC {site.registration}</span>
+      <section className="section section-tight" aria-label="Professional Affiliations and Medical Accreditations">
+        <div className="wrap affiliations-band">
+          <div className="affiliations-head">
+            <div>
+              <p className="kicker kicker-dark">Recognised Standing</p>
+              <h2 className="affiliations-title">Professional Affiliations & Licensure.</h2>
+            </div>
+            <p className="affiliations-lead">
+              Active memberships in national and international oncology societies alongside official state medical council registration.
+            </p>
+          </div>
+
+          <div className="affiliations-grid">
+            {memberships.map((item) => (
+              <article key={item.short} className="affiliation-card">
+                <header className="affiliation-card-top">
+                  <span className="affiliation-badge">{item.short}</span>
+                  <span className="affiliation-type">
+                    {item.short === 'AROI' ? 'Radiation Oncology' : item.short === 'ISMPO' ? 'Medical Oncology' : 'International'}
+                  </span>
+                </header>
+                <h3 className="affiliation-name">{item.name}</h3>
+                <span className="affiliation-meta">
+                  {item.short === 'AROI'
+                    ? 'Apex national association for radiation oncology practitioners'
+                    : item.short === 'ISMPO'
+                    ? 'Premier Indian society for medical and paediatric oncology'
+                    : 'Leading European professional society for medical oncology'}
+                </span>
+              </article>
+            ))}
+
+            <article className="affiliation-card is-licence">
+              <header className="affiliation-card-top">
+                <span className="affiliation-badge badge-licence">DMC</span>
+                <span className="affiliation-type type-licence">Official Licence</span>
+              </header>
+              <h3 className="affiliation-name">{site.council}</h3>
+              <p className="affiliation-reg-row">
+                <span>Medical Reg. No.</span>
+                <strong className="reg-num">{site.registration}</strong>
+              </p>
+              <span className="affiliation-meta">
+                Verified registration with Delhi Medical Council · Reg. {site.registrationDate}
+              </span>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section className="section">
