@@ -130,18 +130,33 @@ export default function Home() {
       <section className="hero">
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <p className="kicker">Medical oncologist</p>
+            <div className="hero-kicker-row">
+              <p className="kicker">Medical Oncologist</p>
+              <span className="hero-status-badge">
+                <span className="live-pulse" aria-hidden="true" />
+                OPD Consultations · {site.clinic}
+              </span>
+            </div>
             <h1>
               Geetanand
               <span>Rao</span>
             </h1>
             <p className="hero-line">Clear plans. Careful treatment.</p>
+            <p className="hero-desc">
+              Dedicated cancer care specializing in evidence-based systemic therapies, targeted protocols, and compassionate patient management.
+            </p>
             <div className="hero-actions">
-              <Link className="btn btn-brass" to="/contact">
-                Book a consult
+              <Link className="btn btn-brass hero-btn-main" to="/contact">
+                <span>Book a Consultation</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </Link>
-              <Link className="btn btn-ghost" to="/credentials">
-                Credentials
+              <Link className="btn btn-ghost hero-btn-sub" to="/credentials">
+                <span>Research & Credentials</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
               </Link>
             </div>
             <a
@@ -157,24 +172,44 @@ export default function Home() {
               </span>
             </a>
           </div>
-          <ol className="hero-aside">
-            {education.map((item) => (
-              <li key={item.city}>
-                <span>{item.years}</span>
-                <strong>{item.city}</strong>
-              </li>
-            ))}
-          </ol>
+
+          <div className="hero-aside-wrap">
+            <span className="hero-aside-kicker">Training Milestones</span>
+            <ol className="hero-aside">
+              {education.map((item) => (
+                <li key={item.degree} className="hero-milestone-item">
+                  <span className="hero-milestone-year">{item.years}</span>
+                  <strong className="hero-milestone-degree">{item.degree}</strong>
+                  <span className="hero-milestone-place">
+                    {item.place.split(',')[0]} · {item.city}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
           <figure className="hero-portrait">
-            <img
-              src={`${import.meta.env.BASE_URL}media/portrait-front.jpg`}
-              alt="Portrait of Dr. Geetanand Rao"
-            />
-            <figcaption>
-              <span>MBBS</span>
-              <span>MD</span>
-              <span>DrNB</span>
-            </figcaption>
+            <div className="hero-portrait-glow" aria-hidden="true" />
+            <div className="hero-portrait-frame">
+              <img
+                src={`${import.meta.env.BASE_URL}media/portrait-front.jpg`}
+                alt="Portrait of Dr. Geetanand Rao"
+              />
+              <figcaption>
+                <span>MBBS</span>
+                <span>MD</span>
+                <span>DrNB</span>
+              </figcaption>
+            </div>
+            <div className="hero-verified-badge" title={`Verified by ${site.council}`}>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <div>
+                <strong>DMC Reg. {site.registration}</strong>
+                <small>{site.council}</small>
+              </div>
+            </div>
           </figure>
         </div>
       </section>
