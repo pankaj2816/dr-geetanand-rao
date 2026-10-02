@@ -282,10 +282,42 @@ export const certificates = [
 ]
 
 export const highlights = [
-  { value: 7, suffix: '+', label: 'Years of experience' },
-  { value: publications.length, suffix: '', label: 'Published papers' },
-  { value: procedures.length, suffix: '', label: 'Procedures' },
-  { value: memberships.length, suffix: '', label: 'Societies' },
+  {
+    id: 'exp',
+    value: 7,
+    suffix: '+',
+    kicker: 'Clinical Practice',
+    label: 'Years of Experience',
+    detail: 'Continuous oncology care',
+    icon: 'experience',
+  },
+  {
+    id: 'papers',
+    value: publications.length,
+    suffix: '',
+    kicker: 'Research Evidence',
+    label: 'Published Papers',
+    detail: 'Peer-reviewed journals',
+    icon: 'papers',
+  },
+  {
+    id: 'procedures',
+    value: procedures.length,
+    suffix: '',
+    kicker: 'Oncology Expertise',
+    label: 'Key Procedures',
+    detail: 'Biopsies, ports & protocols',
+    icon: 'procedures',
+  },
+  {
+    id: 'societies',
+    value: memberships.length,
+    suffix: '',
+    kicker: 'Accreditation',
+    label: 'Medical Societies',
+    detail: 'DMC & national bodies',
+    icon: 'societies',
+  },
 ]
 
 export const reviews = [
