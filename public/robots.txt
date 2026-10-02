@@ -1,0 +1,9 @@
+# robots.txt for https://drgeetanandrao.com/
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://drgeetanandrao.com/sitemap.xml
+
+# Preferred Host
+Host: https://drgeetanandrao.com
