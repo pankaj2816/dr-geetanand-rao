@@ -21,7 +21,7 @@ export default defineConfig({
       },
     },
   ],
-  base: '/dr-geetanand-rao/',
+  base: '/',
   server: {
     port: 5173,
     open: false,
