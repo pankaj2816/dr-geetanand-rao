@@ -1,0 +1,183 @@
+const fs = require('fs');
+const path = require('path');
+
+const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+  body {
+    background: #0d1614;
+    color: #fff;
+    font-family: 'Cinzel', sans-serif;
+    display: flex;
+    gap: 40px;
+    padding: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+  .box {
+    text-align: center;
+    background: #14221f;
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid #233c36;
+    width: 340px;
+  }
+  h3 {
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    color: #dfbe8b;
+    margin-bottom: 20px;
+  }
+  svg {
+    width: 220px;
+    height: 220px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Design A: Classical Asclepius & Laurel Signet (The Hallmark of World-Class Physicians) -->
+<div class="box">
+  <h3>Design A: Golden Asclepius & Laurel Crest</h3>
+  <svg viewBox="0 0 120 120" fill="none">
+    <defs>
+      <linearGradient id="goldA" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff4e0" />
+        <stop offset="35%" stop-color="#e5c386" />
+        <stop offset="70%" stop-color="#bf9147" />
+        <stop offset="100%" stop-color="#805417" />
+      </linearGradient>
+      <radialGradient id="emA" cx="50%" cy="38%" r="65%">
+        <stop offset="0%" stop-color="#143b2f" />
+        <stop offset="75%" stop-color="#091b15" />
+        <stop offset="100%" stop-color="#040d0a" />
+      </radialGradient>
+      <filter id="shA" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
+      </filter>
+    </defs>
+    <!-- Base Medallion -->
+    <circle cx="60" cy="60" r="56" fill="url(#emA)" stroke="url(#goldA)" stroke-width="2.2" filter="url(#shA)"/>
+    <circle cx="60" cy="60" r="50" stroke="url(#goldA)" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6"/>
+    <circle cx="60" cy="60" r="46" stroke="url(#goldA)" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Central Rod of Asclepius (Staff of Healing) -->
+    <!-- The Golden Rod -->
+    <line x1="60" y1="24" x2="60" y2="92" stroke="url(#goldA)" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="60" cy="23" r="3.2" fill="url(#goldA)"/>
+    <circle cx="60" cy="93" r="2" fill="url(#goldA)"/>
+
+    <!-- The Graceful Entwined Serpent of Healing -->
+    <path d="M60 30 C 69 32, 69 41, 60 44 C 51 47, 51 56, 60 60 C 69 64, 69 73, 60 77 C 51 81, 52 86, 58 88" 
+          stroke="url(#goldA)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    
+    <!-- Monogram G & R flanking the staff -->
+    <!-- Left: Refined G -->
+    <path d="M43 51 C43 45, 37 42, 31 46 C25 50, 25 61, 31 66 C37 70, 43 66, 43 60 H34" 
+          stroke="url(#goldA)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- Right: Refined R -->
+    <path d="M77 44 V68 M77 44 H86 C91 44, 94 47, 94 51.5 C94 56, 91 59, 86 59 H77 M85 59 L94 68" 
+          stroke="url(#goldA)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- Top Radiant Star -->
+    <path d="M60 11 L61.5 15 L65.5 16.5 L61.5 18 L60 22 L58.5 18 L54.5 16.5 L58.5 15 Z" fill="url(#goldA)"/>
+  </svg>
+</div>
+
+<!-- Design B: The Sculpted Precision Oncology Ribbon Emblem -->
+<div class="box">
+  <h3>Design B: Intertwined G-R Ribbon Monogram</h3>
+  <svg viewBox="0 0 120 120" fill="none">
+    <defs>
+      <linearGradient id="goldB" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff2db" />
+        <stop offset="30%" stop-color="#e3be80" />
+        <stop offset="70%" stop-color="#ba8c40" />
+        <stop offset="100%" stop-color="#7a4e14" />
+      </linearGradient>
+      <radialGradient id="emB" cx="50%" cy="38%" r="65%">
+        <stop offset="0%" stop-color="#143b2f" />
+        <stop offset="75%" stop-color="#091b15" />
+        <stop offset="100%" stop-color="#040d0a" />
+      </radialGradient>
+      <filter id="shB" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
+      </filter>
+    </defs>
+    <!-- Base Medallion -->
+    <circle cx="60" cy="60" r="56" fill="url(#emB)" stroke="url(#goldB)" stroke-width="2.2" filter="url(#shB)"/>
+    <circle cx="60" cy="60" r="49" stroke="url(#goldB)" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.6"/>
+
+    <!-- Four Cardinal Diamonds -->
+    <polygon points="60,9 62,11.5 60,14 58,11.5" fill="url(#goldB)"/>
+    <polygon points="60,106 62,108.5 60,111 58,108.5" fill="url(#goldB)"/>
+    <polygon points="9,60 11.5,62 14,60 11.5,58" fill="url(#goldB)"/>
+    <polygon points="106,60 108.5,62 111,60 108.5,58" fill="url(#goldB)"/>
+
+    <!-- Unified G-R Precision Monogram: Architectural, balanced & ultra-clean -->
+    <!-- The Outer 'G' Shield Loop -->
+    <path d="M72 37 C61 27, 40 28, 30 39 C19 51, 21 71, 33 82 C44 92, 65 91, 76 81 C82 75, 86 66, 86 57 H56" 
+          stroke="url(#goldB)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <!-- The Inner 'R' Stem and Loop seamlessly integrated -->
+    <path d="M56 38 V82" stroke="url(#goldB)" stroke-width="3.8" stroke-linecap="round"/>
+    <path d="M56 38 H70 C79 38, 84 42, 84 48 C84 54, 79 58, 70 58 H56" stroke="url(#goldB)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M68 58 L84 82" stroke="url(#goldB)" stroke-width="4.2" stroke-linecap="round"/>
+
+    <!-- Central Diamond Node -->
+    <polygon points="56,58 59,61 56,64 53,61" fill="url(#goldB)"/>
+  </svg>
+</div>
+
+<!-- Design C: Modern Precision Oncology Shield (Mayfair / Swiss Medical Grade) -->
+<div class="box">
+  <h3>Design C: Swiss Precision Medical Crest</h3>
+  <svg viewBox="0 0 120 120" fill="none">
+    <defs>
+      <linearGradient id="goldC" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff8e8" />
+        <stop offset="35%" stop-color="#e8c78d" />
+        <stop offset="70%" stop-color="#c19449" />
+        <stop offset="100%" stop-color="#83561a" />
+      </linearGradient>
+      <radialGradient id="emC" cx="50%" cy="38%" r="65%">
+        <stop offset="0%" stop-color="#143b2f" />
+        <stop offset="75%" stop-color="#091b15" />
+        <stop offset="100%" stop-color="#040d0a" />
+      </radialGradient>
+      <filter id="shC" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
+      </filter>
+    </defs>
+    <!-- Base Medallion -->
+    <circle cx="60" cy="60" r="56" fill="url(#emC)" stroke="url(#goldC)" stroke-width="2.2" filter="url(#shC)"/>
+    <circle cx="60" cy="60" r="49" stroke="url(#goldC)" stroke-width="0.8" stroke-dasharray="1.5 2.5" opacity="0.6"/>
+
+    <!-- Precision Clinical Cross in background -->
+    <path d="M57 20 H63 V40 H83 V46 H63 V66 H57 V46 H37 V40 H57 Z" fill="url(#goldC)" opacity="0.18"/>
+
+    <!-- Interlocking Luxury Monogram G & R: Clean Roman Curves -->
+    <!-- G: Left Circular Arc -->
+    <path d="M54 36 C42 33, 31 38, 28 48 C24 60, 31 72, 43 74 C52 75.5, 60 71, 63 64 V54 H46" 
+          stroke="url(#goldC)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- R: Right Side Harmonious Match -->
+    <path d="M58 35 V75" stroke="url(#goldC)" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M58 35 H74 C82 35, 88 39, 88 47 C88 54, 82 58, 74 58 H58" stroke="url(#goldC)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M72 58 L87 75" stroke="url(#goldC)" stroke-width="3.6" stroke-linecap="round"/>
+
+    <!-- Crown Compass Star -->
+    <path d="M60 12 L61.2 15.5 L64.5 16.5 L61.2 17.5 L60 21 L58.8 17.5 L55.5 16.5 L58.8 15.5 Z" fill="url(#goldC)"/>
+  </svg>
+</div>
+
+</body>
+</html>
+`;
+
+fs.writeFileSync(path.resolve(__dirname, 'test-logo-v2.html'), html);
+console.log('HTML written');

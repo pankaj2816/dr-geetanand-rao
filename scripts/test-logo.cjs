@@ -1,0 +1,162 @@
+const fs = require('fs');
+const path = require('path');
+
+// We test 3 refined luxury designs:
+// Option 1: Emerald & Gold Medallion with Interlocking Classical G-R Monogram & Healing Star
+// Option 2: Precision Oncology Dual-Ribbon & Asclepius Cross Monogram
+// Option 3: Minimalist Architectural G-R Monogram with Gold Leaf Bezel
+
+const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #111;
+    color: #fff;
+    font-family: sans-serif;
+    display: flex;
+    gap: 40px;
+    padding: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+  .box {
+    text-align: center;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+  }
+  svg {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Concept 1: The Royal Emerald & Gold Signet -->
+<div class="box">
+  <h3>Concept 1: Luxury Signet Medallion</h3>
+  <svg viewBox="0 0 100 100" fill="none">
+    <defs>
+      <linearGradient id="gold1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff2db" />
+        <stop offset="35%" stop-color="#e2bf81" />
+        <stop offset="70%" stop-color="#c5984b" />
+        <stop offset="100%" stop-color="#8f6323" />
+      </linearGradient>
+      <radialGradient id="em-bg" cx="50%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#143d31" />
+        <stop offset="80%" stop-color="#0a2019" />
+        <stop offset="100%" stop-color="#05130f" />
+      </radialGradient>
+      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.4"/>
+      </filter>
+    </defs>
+
+    <!-- Deep Emerald Base Circle -->
+    <circle cx="50" cy="50" r="47" fill="url(#em-bg)" stroke="url(#gold1)" stroke-width="1.8" filter="url(#glow)"/>
+    <!-- Inner Concentric Beaded/Dashed Ring -->
+    <circle cx="50" cy="50" r="41.5" stroke="url(#gold1)" stroke-width="0.8" stroke-dasharray="1.5 2.5" opacity="0.7"/>
+    <!-- Thin Inner Core Ring -->
+    <circle cx="50" cy="50" r="38" stroke="url(#gold1)" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Cardinal Accents -->
+    <path d="M50 11.5 L51 14.5 L54 15.5 L51 16.5 L50 19.5 L49 16.5 L46 15.5 L49 14.5 Z" fill="url(#gold1)"/>
+    <circle cx="50" cy="85.5" r="1.2" fill="url(#gold1)"/>
+    <circle cx="14.5" cy="50" r="1.2" fill="url(#gold1)"/>
+    <circle cx="85.5" cy="50" r="1.2" fill="url(#gold1)"/>
+
+    <!-- Refined Monogram GR -->
+    <!-- Letter G: Perfect arc with sculpted terminals -->
+    <path d="M62 36 C57 28.5, 47 26.5, 38 31 C29 35.5, 26 46, 30 55 C34 64, 44 68, 54 65 C61 63, 66 57, 67 50 L48 50" 
+          stroke="url(#gold1)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Letter R: Elegant spine and loop passing through -->
+    <path d="M43 32 L43 65" stroke="url(#gold1)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M43 32 H54 C60 32, 64 35, 64 40.5 C64 46, 60 49, 54 49 H43" stroke="url(#gold1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M53 49 L65 65" stroke="url(#gold1)" stroke-width="3.2" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- Concept 2: The Precision Medical Cross & Dual Monogram Ribbon -->
+<div class="box">
+  <h3>Concept 2: The Caduceus & Precision Emblem</h3>
+  <svg viewBox="0 0 100 100" fill="none">
+    <defs>
+      <linearGradient id="gold2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff1d6" />
+        <stop offset="40%" stop-color="#dfbd7d" />
+        <stop offset="80%" stop-color="#b6873c" />
+        <stop offset="100%" stop-color="#805419" />
+      </linearGradient>
+      <radialGradient id="em-bg2" cx="50%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#143d31" />
+        <stop offset="100%" stop-color="#071712" />
+      </radialGradient>
+    </defs>
+    <circle cx="50" cy="50" r="47" fill="url(#em-bg2)" stroke="url(#gold2)" stroke-width="2"/>
+    <circle cx="50" cy="50" r="42" stroke="url(#gold2)" stroke-width="0.75" stroke-dasharray="2 2" opacity="0.6"/>
+    
+    <!-- Central Precision Medical Cross (Shield Background) -->
+    <path d="M47 22 H53 V32 H63 V38 H53 V48 H47 V38 H37 V32 H47 Z" fill="url(#gold2)" opacity="0.25"/>
+
+    <!-- Symmetrical G-R Crest: Left is G, Right is R mirror-balanced -->
+    <!-- Elegant stylized G -->
+    <path d="M46 36 C40 33, 30 36, 28 45 C26 55, 33 64, 43 65 C48 65.5, 52 63, 54 59 L54 51 L44 51" 
+          stroke="url(#gold2)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Elegant stylized R on the right -->
+    <path d="M50 33 L50 65" stroke="url(#gold2)" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M50 33 H60 C66 33, 70 36.5, 70 42 C70 47.5, 66 51, 60 51 H50" stroke="url(#gold2)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M59 51 L71 65" stroke="url(#gold2)" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Pinnacle Healing Star -->
+    <circle cx="50" cy="22" r="2.5" fill="url(#gold2)"/>
+  </svg>
+</div>
+
+<!-- Concept 3: Classical Interlocking Serif Monogram (Cartier / Rolex / Harvard Medical aesthetic) -->
+<div class="box">
+  <h3>Concept 3: Classical Roman Serif Monogram</h3>
+  <svg viewBox="0 0 100 100" fill="none">
+    <defs>
+      <linearGradient id="gold3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fdf4e2" />
+        <stop offset="30%" stop-color="#e5c58a" />
+        <stop offset="70%" stop-color="#be9145" />
+        <stop offset="100%" stop-color="#83571d" />
+      </linearGradient>
+      <radialGradient id="em-bg3" cx="50%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#18483a" />
+        <stop offset="70%" stop-color="#0c251e" />
+        <stop offset="100%" stop-color="#05130f" />
+      </radialGradient>
+    </defs>
+    <!-- Seal Medallion -->
+    <circle cx="50" cy="50" r="47" fill="url(#em-bg3)" stroke="url(#gold3)" stroke-width="2"/>
+    <circle cx="50" cy="50" r="42.5" stroke="url(#gold3)" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="50" cy="50" r="39.5" stroke="url(#gold3)" stroke-width="0.5" stroke-dasharray="1 3" opacity="0.5"/>
+
+    <!-- Pinnacle Cross -->
+    <path d="M50 14 V20 M47 17 H53" stroke="url(#gold3)" stroke-width="1.4" stroke-linecap="round"/>
+    
+    <!-- Classical Serif Monogram: G intertwined with R using pure typography -->
+    <text x="35" y="62" font-family="'Playfair Display', Georgia, serif" font-size="44" font-weight="700" fill="url(#gold3)" letter-spacing="-2">G</text>
+    <text x="50" y="62" font-family="'Playfair Display', Georgia, serif" font-size="44" font-weight="700" fill="url(#gold3)" opacity="0.95">R</text>
+
+    <!-- Base Laurel Ribbon or Accent Line -->
+    <path d="M34 72 Q50 77 66 72" stroke="url(#gold3)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    <circle cx="50" cy="74.5" r="1.5" fill="url(#gold3)"/>
+  </svg>
+</div>
+
+</body>
+</html>
+`;
+
+fs.writeFileSync(path.resolve(__dirname, 'test-logo.html'), html);
+console.log('HTML written');
