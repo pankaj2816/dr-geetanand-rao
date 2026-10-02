@@ -24,21 +24,21 @@ export const site = {
 
 export const education = [
   {
-    years: '2013 — 2019',
+    years: '2013',
     degree: 'MBBS',
     city: 'Udaipur',
     place: 'RNT Medical College, Udaipur, Rajasthan',
     note: 'First class in MBBS Phase II and Phase III Part II university examinations.',
   },
   {
-    years: '2019 — 2022',
+    years: '2019',
     degree: 'MD, Radiation Oncology',
     city: 'Rohtak',
     place: 'Pt. B.D. Sharma Post Graduate Institute of Medical Sciences, Rohtak, Haryana',
     note: 'Junior resident. Radiation therapy planning, chemotherapy, and medical care of people with cancer, including OPD, IPD, and ICU.',
   },
   {
-    years: '2022 — 2025',
+    years: '2022',
     degree: 'DrNB, Medical Oncology',
     city: 'New Delhi',
     place: 'Indraprastha Apollo Hospital, New Delhi',
