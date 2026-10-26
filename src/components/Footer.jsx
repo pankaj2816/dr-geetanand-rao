@@ -56,6 +56,17 @@ export default function Footer() {
       </div>
       <div className="wrap footer-base">
         <p>Information only. Not a substitute for a consultation.</p>
+        <p>
+          Designed &amp; Developed by{' '}
+          <a
+            href="https://pixeltocloud.com?utm_source=dr_geetanand&utm_medium=footer_credit&utm_campaign=client_referral"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '3px' }}
+          >
+            PixelToCloud
+          </a>
+        </p>
         <p>© {new Date().getFullYear()} {site.name}</p>
       </div>
     </footer>
